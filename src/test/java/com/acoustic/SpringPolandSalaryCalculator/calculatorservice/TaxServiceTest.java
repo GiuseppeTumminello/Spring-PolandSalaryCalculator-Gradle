@@ -18,6 +18,7 @@ import com.acoustic.SpringPolandSalaryCalculator.rates.RatesConfigurationPropert
 @ExtendWith(MockitoExtension.class)
 class TaxServiceTest {
 
+    public static final int TAX_GROSS_AMOUNT_TRASHOLD = 120000;
     @InjectMocks
     private TaxService taxService;
 
@@ -40,7 +41,7 @@ class TaxServiceTest {
             BigDecimal input, BigDecimal expected, BigDecimal rate, BigDecimal totalZus, BigDecimal health) {
 
         given(ratesConfigurationProperties.getTaxRate17Rate()).willReturn(rate);
-        given(ratesConfigurationProperties.getTaxGrossAmountTrashold()).willReturn(ratesConfigurationProperties.getTaxGrossAmountTrashold());
+        given(ratesConfigurationProperties.getTaxGrossAmountTrashold()).willReturn(BigDecimal.valueOf(TAX_GROSS_AMOUNT_TRASHOLD));
         given(totalZusService.apply(input)).willReturn(totalZus);
         given(healthInsuranceService.apply(input)).willReturn(health);
 

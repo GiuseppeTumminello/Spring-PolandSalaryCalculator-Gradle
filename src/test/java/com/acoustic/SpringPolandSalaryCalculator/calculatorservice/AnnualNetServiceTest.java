@@ -30,7 +30,7 @@ public class AnnualNetServiceTest {
     @CsvSource({"6000, 51833.28, 4319.44", "7000, 60472.20, 5039.35", "15891.68, 128301.72, 10691.81"})
     void getAnnualNetSalary(BigDecimal input, BigDecimal expected, BigDecimal monthlyNet) {
         given(monthlyNetService.apply(input)).willReturn(monthlyNet);
-        given(rate.getMonthNumber()).willReturn(rate.getMonthNumber());
+        given(rate.getMonthNumber()).willReturn(BigDecimal.valueOf(MONTHS_NUMBER));
         assertThat(annualNetService.apply(input)).isEqualTo(expected);
 
     }

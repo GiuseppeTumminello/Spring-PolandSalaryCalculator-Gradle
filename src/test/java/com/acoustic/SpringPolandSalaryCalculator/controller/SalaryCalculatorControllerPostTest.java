@@ -31,6 +31,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 @ActiveProfiles("test")
 public class SalaryCalculatorControllerPostTest {
 
+    public static final String CALCULATOR_ENDPOINTS = "/calculator/";
+    public static final String DEPARTMENT_NAME_REQUEST_PARAM = "?departmentName=";
+    public static final String JOB_TITLE_ID_REQUEST_PARAM = "&jobTitleId=";
     @Autowired
     private DataSalaryCalculatorRepository dataSalaryCalculatorRepository;
     @Autowired
@@ -81,7 +84,8 @@ public class SalaryCalculatorControllerPostTest {
     public void getSalaryCalculation(BigDecimal grossMonthlySalary, String departmentName, int jobTitleId)
             throws Exception {
         this.mockMvc.perform(post(
-                        "/calculator/" + grossMonthlySalary + "?departmentName=" + departmentName + "&jobTitleId=" +
+                        CALCULATOR_ENDPOINTS + grossMonthlySalary + DEPARTMENT_NAME_REQUEST_PARAM + departmentName +
+                                JOB_TITLE_ID_REQUEST_PARAM +
                                 jobTitleId))
                 .andExpect(status().isOk())
                 .andExpect(MockMvcResultMatchers.content()
@@ -106,8 +110,8 @@ public class SalaryCalculatorControllerPostTest {
         Assertions.assertThrows(
                 ArrayIndexOutOfBoundsException.class,
                 () -> this.mockMvc.perform(post(
-                                "/calculator/" + grossMonthlySalary + "?departmentName=" + departmentName +
-                                        "&jobTitleId=" +
+                                CALCULATOR_ENDPOINTS + grossMonthlySalary + DEPARTMENT_NAME_REQUEST_PARAM + departmentName +
+                                        JOB_TITLE_ID_REQUEST_PARAM +
                                         jobTitleId))
                         .andExpect(status().isOk())
                         .andExpect(MockMvcResultMatchers.content()
@@ -132,8 +136,8 @@ public class SalaryCalculatorControllerPostTest {
         Assertions.assertThrows(
                 NullPointerException.class,
                 () -> this.mockMvc.perform(post(
-                                "/calculator/" + grossMonthlySalary + "?departmentName=" + departmentName +
-                                        "&jobTitleId=" +
+                                CALCULATOR_ENDPOINTS + grossMonthlySalary + DEPARTMENT_NAME_REQUEST_PARAM + departmentName +
+                                        JOB_TITLE_ID_REQUEST_PARAM +
                                         jobTitleId))
                         .andExpect(status().isOk())
                         .andExpect(MockMvcResultMatchers.content()
@@ -158,7 +162,8 @@ public class SalaryCalculatorControllerPostTest {
         Assertions.assertThrows(
                 NestedServletException.class,
                 () -> this.mockMvc.perform(post(
-                                "/calculator/" + grossMonthlySalary + "?departmentName=" + departmentName + "&jobTitleId=" +
+                                CALCULATOR_ENDPOINTS + grossMonthlySalary + DEPARTMENT_NAME_REQUEST_PARAM + departmentName +
+                                        JOB_TITLE_ID_REQUEST_PARAM +
                                         jobTitleId))
                         .andExpect(status().isOk())
                         .andExpect(MockMvcResultMatchers.content()
@@ -171,7 +176,7 @@ public class SalaryCalculatorControllerPostTest {
     @ParameterizedTest
     @CsvSource({"6000", "7000", "15891.68", "7700", "2999.9999"})
     public void getSalaryCalculationGrossNoStatistic(BigDecimal grossMonthlySalary) throws Exception {
-        this.mockMvc.perform(post("/calculator/" + grossMonthlySalary))
+        this.mockMvc.perform(post(CALCULATOR_ENDPOINTS + grossMonthlySalary))
                 .andExpect(status().isOk())
                 .andExpect(MockMvcResultMatchers.content()
                         .string(this.objectMapper.writeValueAsString(getSalaryCalculationResponseBody(grossMonthlySalary))));
