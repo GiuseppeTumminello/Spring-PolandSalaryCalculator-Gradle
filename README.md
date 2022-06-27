@@ -1,7 +1,7 @@
 # Rest API Salary Calculator
 
 The rest api has been created to calculate net amount in pln and display all the taxation applied to the gross amount.
-The application can perform 2 GET HTML and 1 POST html method, the first two are accessible in the following links:
+The application can perform 2 GET  and 1 POST html method, the first two are accessible in the following links:
 * The GET method show the departments and the job title list avaialable, to check them go to the following endpoint:
   * http://localhost:8080/calculate/getJobDepartment
   * http://localhost:8080/calculate/getJobTitles/{departmentName}
@@ -14,7 +14,7 @@ The application can perform 2 GET HTML and 1 POST html method, the first two are
 
 
  
-If the user wants to participate to the statistic add on the url the departmentName and jobTitleId, the endpoint is accessible via http://localhost:8080/calculate/<grossSalaryMonthly>?departmentName=<departmentName>&jobTitleId=<id> and replace Repalce <grossSalaryAmount> with your salary, <departmentName> with the department name listed below and the <jobTitleId> with the jobTitleId listed below, example of endpoint:
+If the user wants to participate to the statistic add on the url the departmentName and jobTitleId, the endpoint is accessible via http://localhost:8080/calculate/{grossSalaryMonthly}?departmentName={departmentName}&jobTitleId={id} and replace {grossSalaryAmount} with your salary, {departmentName} with the department name listed below and the {jobTitleId} with the jobTitleId listed below, example of endpoint:
   * http://localhost:8080/calculate/6000?departmentName=finance&jobTitleId=9
 
 After provided the parameter, the API will return the following response body:
@@ -132,7 +132,22 @@ The application uses Postgres SQL Server, which runs in a Docker container. Plea
 
 * Create a table in PostgreSQL by executing the create table query.
 
-  * CREATE TABLE IF NOT EXISTS public.salary_calculator ( id integer NOT NULL DEFAULT nextval('salary_calculator_id_seq'::regclass), pension_zus numeric, disability_zus numeric, sickness_zus numeric, total_zus numeric, health numeric, gross_yearly numeric, tax numeric, net_monthly numeric, net_yearly numeric, gross_monthly numeric, job_title character varying COLLATE pg_catalog."default", CONSTRAINT salary_calculator_pkey PRIMARY KEY (id) )
+  * CREATE TABLE IF NOT EXISTS public.data_salary_calculator
+(
+    id integer NOT NULL DEFAULT nextval('salary_calculator_spring_id_seq'::regclass),
+    pension_zus numeric,
+    disability_zus numeric,
+    sickness_zus numeric,
+    total_zus numeric,
+    health numeric,
+    annual_gross numeric,
+    tax numeric,
+    net_monthly numeric,
+    annual_net numeric,
+    gross_monthly numeric,
+    job_title character varying COLLATE pg_catalog."default",
+    CONSTRAINT salary_calculator_spring_pkey PRIMARY KEY (id)
+)
 
 # How to run from the IDE?
 
