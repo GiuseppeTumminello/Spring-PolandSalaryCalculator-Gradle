@@ -1,16 +1,23 @@
 # Rest API Salary Calculator
 
 The rest api has been created to calculate net amount in pln and display all the taxation applied to the gross amount.
-To calculate the net salary use the POST and go to the following endpoint: http://localhost:8080/calculate/<grossSalaryMonthly> and replace <grossSalaryAmount> with your gross salary, example:
-* http://localhost:8080/calculate/6000
+The application can perform 2 GET HTML and 1 POST html method, the first two are accessible in the following links:
+* The GET method show the departments and the job title list avaialable, to check them go to the following endpoint:
+  * http://localhost:8080/calculate/getJobDepartment
+  * http://localhost:8080/calculate/getJobTitles/{departmentName}
+ 
+
+* The POST html method is used to calculate the salary and accept optional query parameters, go to the following endpoint to calculate your net or participate to the statistics:
+
+  * http://localhost:8080/calculate/{grossSalaryMonthly}
+  * http://localhost:8080/calculate/{grossSalaryMonthly}?departmentName={departmentName}&jobTitleId={id}
+
+
  
 If the user wants to participate to the statistic add on the url the departmentName and jobTitleId, the endpoint is accessible via http://localhost:8080/calculate/<grossSalaryMonthly>?departmentName=<departmentName>&jobTitleId=<id> and replace Repalce <grossSalaryAmount> with your salary, <departmentName> with the department name listed below and the <jobTitleId> with the jobTitleId listed below, example of endpoint:
- 
-* http://localhost:8080/calculate/6000?departmentName=finance&jobTitleId=9
+  * http://localhost:8080/calculate/6000?departmentName=finance&jobTitleId=9
 
-After provided the parameter, the API will return the following response body, if the user wants to participate to the stastics will display also the average value.
-
-
+After provided the parameter, the API will return the following response body:
 
 * Pension Zus amount
 * Disability zus amount
@@ -22,6 +29,11 @@ After provided the parameter, the API will return the following response body, i
 * Yearly net amount
 * Yearly net amount
 * Net amount
+ 
+if the user wants to participate to the stastics will display also the average value:
+
+* Average 
+
 
 Department name:
 
@@ -89,7 +101,6 @@ Job title id:
   * 7 - Traffic Manager
  
 
-The application will display if the salary gross amount is above or below the gross salary average.
 
 # Setup
 * Required:
@@ -115,7 +126,7 @@ The application uses Postgres SQL Server, which runs in a Docker container. Plea
   * docker pull dpage/pgadmin4
   * docker run --name my-own-postgres -e POSTGRES_PASSWORD=postgresmaster -p 5432:5432 -d postgres
   
-* Docker compose file: docker-compose-salary-application.yml
+* Docker compose file: docker-compose-salary-calculator.yml
   * Go to the folder: PolandSalaryCalculator
   * execute: docker-compose -f docker-compose-salary-application.yml up
 
@@ -138,7 +149,8 @@ Once the database configuration is set, go to the SalaryCalculatorApplication cl
 
 Clone the git repository and run the follwowing command:
 
-* docker run -it --rm --network=bridge polandsalarycalculator_salary_calculator
+* docker run -it --rm -p 8080:8080 spring-polandsalarycalculator-gradle_salary_calculator
+
 
 
 
