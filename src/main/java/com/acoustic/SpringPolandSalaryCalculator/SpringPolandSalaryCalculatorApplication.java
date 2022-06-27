@@ -9,7 +9,6 @@ import com.acoustic.SpringPolandSalaryCalculator.service.DataSalaryCalculatorRep
 
 
 @SpringBootApplication
-@EnableJpaRepositories(basePackages = "com.acoustic.SpringPolandSalaryCalculator.service")
 public class SpringPolandSalaryCalculatorApplication {
     public static void main(String[] args) {
         SpringApplication.run(SpringPolandSalaryCalculatorApplication.class, args);

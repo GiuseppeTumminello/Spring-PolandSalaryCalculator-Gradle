@@ -5,14 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="611964dc-c4cc-4755-b66d-229be52e4a65" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose-salary-calculator.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose-salary-calculator.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/acoustic/SpringPolandSalaryCalculator/SpringPolandSalaryCalculatorApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/acoustic/SpringPolandSalaryCalculator/SpringPolandSalaryCalculatorApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/acoustic/SpringPolandSalaryCalculator/entity/DataSalaryCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/acoustic/SpringPolandSalaryCalculator/entity/DataSalaryCalculator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/acoustic/SpringPolandSalaryCalculator/service/DataSalaryCalculatorRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/acoustic/SpringPolandSalaryCalculator/service/DataSalaryCalculatorRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/acoustic/SpringPolandSalaryCalculator/controller/SalaryCalculatorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/acoustic/SpringPolandSalaryCalculator/controller/SalaryCalculatorController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Spring-PolandSalaryCalculator.iml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
