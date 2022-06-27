@@ -11,11 +11,13 @@ import lombok.RequiredArgsConstructor;
 
 @Component
 @RequiredArgsConstructor
-public class SicknessInsuranceService implements SalaryCalculatorService{
-    private final RatesConfigurationProperties ratesConfigurationProperties;
+public class SicknessInsuranceService implements SalaryCalculatorService {
+
+    private final RatesConfigurationProperties rate;
+
     @Override
-    public BigDecimal apply(final BigDecimal bigDecimal) {
-        return bigDecimal.multiply(this.ratesConfigurationProperties.getSicknessZusRate()).setScale(2, RoundingMode.HALF_EVEN);
+    public BigDecimal apply(final BigDecimal grossMonthlySalary) {
+        return grossMonthlySalary.multiply(this.rate.getSicknessZusRate()).setScale(2, RoundingMode.HALF_EVEN);
     }
 
     @Override

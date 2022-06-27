@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
 
 import com.acoustic.SpringPolandSalaryCalculator.jobcategories.JobCategories;
@@ -23,6 +24,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 @AutoConfigureMockMvc
 @SpringBootTest
+@ActiveProfiles("test")
 public class SalaryCalculatorControllerGetTest {
 
     public static final String AIRLINE = "airline";
@@ -31,11 +33,11 @@ public class SalaryCalculatorControllerGetTest {
     public static final String FINANCE = "finance";
     public static final String IT = "it";
     private static final String DEPARTMENT_NAME_ENDPOINT = "/getJobDepartment";
-    private static final String IT_JOB_TITLE_ENDPOINT = "/getJobTitles/it";
-    private static final String FINANCE_JOB_TITLE_ENDPOINT = "/getJobTitles/finance";
-    private static final String ENGINEER_JOB_TITLE_ENDPOINT = "/getJobTitles/engineer";
-    private static final String RESTAURANT_JOB_TITLE_ENDPOINT = "/getJobTitles/restaurant";
-    private static final String AIRLINE_JOB_TITLE_ENDPOINT = "/getJobTitles/airline";
+    private static final String IT_JOB_TITLE_ENDPOINT = "/getJobTitles/"+IT;
+    private static final String FINANCE_JOB_TITLE_ENDPOINT = "/getJobTitles/"+FINANCE;
+    private static final String ENGINEER_JOB_TITLE_ENDPOINT = "/getJobTitles/"+ENGINEER;
+    private static final String RESTAURANT_JOB_TITLE_ENDPOINT = "/getJobTitles/"+RESTAURANT;
+    private static final String AIRLINE_JOB_TITLE_ENDPOINT = "/getJobTitles/"+AIRLINE;
 
 
     @Autowired

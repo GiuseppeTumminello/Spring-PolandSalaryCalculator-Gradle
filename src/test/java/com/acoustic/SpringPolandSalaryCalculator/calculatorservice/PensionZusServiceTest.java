@@ -26,7 +26,7 @@ class PensionZusServiceTest {
 
     @ParameterizedTest
     @CsvSource({"6000.,585.60, 0.0976", "7000, 683.20, 0.0976", "15891.68, 1551.03, 0.0976"})
-    public void getPensionZus(BigDecimal input, BigDecimal expected, BigDecimal rate){
+    public void getPensionZus(BigDecimal input, BigDecimal expected, BigDecimal rate) {
         given(ratesConfigurationProperties.getPensionZusRate()).willReturn(rate);
         assertThat(pensionZusService.apply(input)).isEqualTo(expected);
     }

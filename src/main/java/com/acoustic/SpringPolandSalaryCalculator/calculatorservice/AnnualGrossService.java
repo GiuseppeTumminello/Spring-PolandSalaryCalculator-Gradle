@@ -10,7 +10,7 @@ import lombok.RequiredArgsConstructor;
 
 @Component
 @RequiredArgsConstructor
-public class AnnualGrossService implements SalaryCalculatorService{
+public class AnnualGrossService implements SalaryCalculatorService {
 
     private final RatesConfigurationProperties rate;
 

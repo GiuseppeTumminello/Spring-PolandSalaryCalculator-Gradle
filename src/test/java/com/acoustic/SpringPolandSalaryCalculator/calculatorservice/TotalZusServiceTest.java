@@ -28,11 +28,10 @@ class TotalZusServiceTest {
 
     @ParameterizedTest
     @CsvSource({"6000, 822.60, 0.1371", "7000, 959.70, 0.1371", "15891.68, 2178.75, 0.1371"})
-    public void getTotalZus(BigDecimal input, BigDecimal expected, BigDecimal rate){
+    public void getTotalZus(BigDecimal input, BigDecimal expected, BigDecimal rate) {
         given(ratesConfigurationProperties.getTotalZusRate()).willReturn(rate);
         assertThat(totalZusService.apply(input)).isEqualTo(expected);
 
     }
-
 
 }

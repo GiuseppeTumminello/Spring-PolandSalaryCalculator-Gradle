@@ -11,7 +11,8 @@ import lombok.RequiredArgsConstructor;
 
 @Component
 @RequiredArgsConstructor
-public class TotalZusService implements SalaryCalculatorService{
+public class TotalZusService implements SalaryCalculatorService {
+
     private final RatesConfigurationProperties rate;
 
     @Override
@@ -20,7 +21,7 @@ public class TotalZusService implements SalaryCalculatorService{
     }
 
     @Override
-    public BigDecimal apply( BigDecimal grossMonthlySalary) {
+    public BigDecimal apply(BigDecimal grossMonthlySalary) {
         return grossMonthlySalary.multiply(this.rate.getTotalZusRate()).setScale(2, RoundingMode.HALF_EVEN);
     }
 

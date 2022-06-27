@@ -27,12 +27,10 @@ class SicknessInsuranceServiceTest {
 
     @ParameterizedTest
     @CsvSource({"6000, 147.00, 0.0245", "7000, 171.50, 0.0245", "15891.68, 389.35, 0.0245"})
-    public void getSicknessInsurance(BigDecimal input, BigDecimal expected, BigDecimal rate){
+    public void getSicknessInsurance(BigDecimal input, BigDecimal expected, BigDecimal rate) {
         given(ratesConfigurationProperties.getSicknessZusRate()).willReturn(rate);
         assertThat(sicknessInsuranceService.apply(input)).isEqualTo(expected);
 
     }
-
-
 
 }

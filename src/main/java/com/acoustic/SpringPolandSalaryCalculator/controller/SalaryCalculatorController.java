@@ -7,12 +7,14 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
 import com.acoustic.SpringPolandSalaryCalculator.calculatorservice.SalaryCalculatorService;
 import com.acoustic.SpringPolandSalaryCalculator.entity.DataSalaryCalculator;
 import com.acoustic.SpringPolandSalaryCalculator.jobcategories.JobCategories;
@@ -45,11 +47,10 @@ public class SalaryCalculatorController {
 
 
     @PostMapping("/calculator/{grossMonthlySalary}")
-
     public Map<String, BigDecimal> getSalaryCalculation(
             @PathVariable
             @Min(value = MINIMUM_GROSS,
-                    message = "Must be Greater than or equal to 2000.00") @NotNull  BigDecimal grossMonthlySalary,
+                    message = "Must be Greater than or equal to 2000.00") @NotNull BigDecimal grossMonthlySalary,
             @RequestParam(defaultValue = "0", required = false)
             @NotNull String departmentName,
             @RequestParam(defaultValue = "0", required = false)

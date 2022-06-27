@@ -11,12 +11,13 @@ import lombok.RequiredArgsConstructor;
 
 @Component
 @RequiredArgsConstructor
-public class PensionZusService implements SalaryCalculatorService{
-    private final RatesConfigurationProperties ratesConfigurationProperties;
+public class PensionZusService implements SalaryCalculatorService {
+
+    private final RatesConfigurationProperties rate;
 
     @Override
     public BigDecimal apply(final BigDecimal grossMonthlySalary) {
-        return grossMonthlySalary.multiply(this.ratesConfigurationProperties.getPensionZusRate()).setScale(2, RoundingMode.HALF_EVEN);
+        return grossMonthlySalary.multiply(this.rate.getPensionZusRate()).setScale(2, RoundingMode.HALF_EVEN);
     }
 
     @Override

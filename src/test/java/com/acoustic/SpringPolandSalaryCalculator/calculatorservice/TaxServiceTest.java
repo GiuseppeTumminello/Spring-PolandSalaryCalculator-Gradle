@@ -37,11 +37,7 @@ class TaxServiceTest {
             "7000, 457.32, 0.0832,  959.70, 543.63",
             "15891.68, 1786.96, 0.1432, 2178.75,1234.16"})
     public void getTaxAmountBasedOnRate(
-            BigDecimal input,
-            BigDecimal expected,
-            BigDecimal rate,
-            BigDecimal totalZus,
-            BigDecimal health) {
+            BigDecimal input, BigDecimal expected, BigDecimal rate, BigDecimal totalZus, BigDecimal health) {
 
         given(ratesConfigurationProperties.getTaxRate17Rate()).willReturn(rate);
         given(ratesConfigurationProperties.getTaxGrossAmountTrashold()).willReturn(BigDecimal.valueOf(120_000.00));
@@ -49,8 +45,6 @@ class TaxServiceTest {
         given(healthInsuranceService.apply(input)).willReturn(health);
 
         assertThat(taxService.apply(input)).isEqualTo(expected);
-
-
 
     }
 

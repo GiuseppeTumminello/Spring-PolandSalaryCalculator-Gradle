@@ -37,7 +37,6 @@ class MonthlyNetServiceTest {
         given(healthInsuranceService.apply(input)).willReturn(health);
         assertThat(monthlyNetService.apply(input)).isEqualTo(expected);
 
-
     }
 
 }

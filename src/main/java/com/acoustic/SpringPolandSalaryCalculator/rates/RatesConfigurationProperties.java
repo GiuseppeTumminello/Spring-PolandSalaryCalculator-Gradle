@@ -5,6 +5,7 @@ import java.math.BigDecimal;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -16,23 +17,23 @@ import lombok.Setter;
 @Configuration
 public class RatesConfigurationProperties {
 
-    private  BigDecimal pensionZusRate;
+    private BigDecimal pensionZusRate;
 
-    private  BigDecimal disabilityZusRate;
+    private BigDecimal disabilityZusRate;
 
-    private  BigDecimal sicknessZusRate;
+    private BigDecimal sicknessZusRate;
 
-    private  BigDecimal totalZusRate;
+    private BigDecimal totalZusRate;
 
-    private  BigDecimal healthRate;
+    private BigDecimal healthRate;
 
-    private  BigDecimal taxRate17Rate;
+    private BigDecimal taxRate17Rate;
 
-    private  BigDecimal taxRate32Rate;
+    private BigDecimal taxRate32Rate;
 
-    private  BigDecimal taxGrossAmountTrashold;
+    private BigDecimal taxGrossAmountTrashold;
 
-    private  BigDecimal monthNumber;
+    private BigDecimal monthNumber;
 
-    private  BigDecimal minimumSalary;
+    private BigDecimal minimumSalary;
 }

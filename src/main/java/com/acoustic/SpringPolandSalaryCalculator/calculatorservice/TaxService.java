@@ -15,15 +15,14 @@ public class TaxService implements SalaryCalculatorService {
 
     private final RatesConfigurationProperties rate;
 
-    private  final TotalZusService totalZusService;
+    private final TotalZusService totalZusService;
 
-    private  final HealthInsuranceService healthInsuranceService;
+    private final HealthInsuranceService healthInsuranceService;
 
 
     @Override
     public BigDecimal apply(BigDecimal grossMonthlySalary) {
-        return (grossMonthlySalary.multiply(grossMonthlySalary)
-                .compareTo(this.rate.getTaxGrossAmountTrashold()) < 0)
+        return (grossMonthlySalary.multiply(grossMonthlySalary).compareTo(this.rate.getTaxGrossAmountTrashold()) < 0)
                 ? getTaxAmountBasedOnRate(grossMonthlySalary, this.rate.getTaxRate32Rate())
                 : getTaxAmountBasedOnRate(grossMonthlySalary, this.rate.getTaxRate17Rate());
     }
