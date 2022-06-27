@@ -40,7 +40,7 @@ class TaxServiceTest {
             BigDecimal input, BigDecimal expected, BigDecimal rate, BigDecimal totalZus, BigDecimal health) {
 
         given(ratesConfigurationProperties.getTaxRate17Rate()).willReturn(rate);
-        given(ratesConfigurationProperties.getTaxGrossAmountTrashold()).willReturn(BigDecimal.valueOf(120_000.00));
+        given(ratesConfigurationProperties.getTaxGrossAmountTrashold()).willReturn(ratesConfigurationProperties.getTaxGrossAmountTrashold());
         given(totalZusService.apply(input)).willReturn(totalZus);
         given(healthInsuranceService.apply(input)).willReturn(health);
 

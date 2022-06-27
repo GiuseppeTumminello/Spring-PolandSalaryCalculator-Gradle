@@ -49,6 +49,7 @@ public class SalaryCalculatorControllerGetTest {
     private ObjectMapper objectMapper;
 
 
+
     @Test
     public void getDepartmentName() throws Exception {
         String expected = this.objectMapper.writeValueAsString(this.jobCategories.getJobDepartmentAndTitles()

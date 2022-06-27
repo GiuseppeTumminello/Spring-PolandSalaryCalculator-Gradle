@@ -19,6 +19,7 @@ import com.acoustic.SpringPolandSalaryCalculator.rates.RatesConfigurationPropert
 @ExtendWith(MockitoExtension.class)
 public class AnnualGrossServiceTest {
 
+
     @InjectMocks
     AnnualGrossService annualGrossService;
     @Mock
@@ -28,7 +29,7 @@ public class AnnualGrossServiceTest {
     @ParameterizedTest
     @CsvSource({"6000, 72000", "7000, 84000", "15891.68, 190700.16"})
     void getAnnualGrossSalary(BigDecimal input, BigDecimal expected) {
-        given(rate.getMonthNumber()).willReturn(BigDecimal.valueOf(12));
+        given(rate.getMonthNumber()).willReturn(rate.getMonthNumber());
         assertThat(annualGrossService.apply(input)).isEqualTo(expected);
 
     }
