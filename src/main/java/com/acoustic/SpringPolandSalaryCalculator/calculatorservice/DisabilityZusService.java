@@ -16,7 +16,7 @@ public class DisabilityZusService implements SalaryCalculatorService {
     private final RatesConfigurationProperties rates;
     @Override
     public BigDecimal apply(BigDecimal grossMonthlySalary) {
-        return grossMonthlySalary.multiply(rates.getDisabilityZusRate()).setScale(2, RoundingMode.HALF_EVEN);
+        return grossMonthlySalary.multiply(this.rates.getDisabilityZusRate()).setScale(2, RoundingMode.HALF_EVEN);
     }
 
     @Override

@@ -15,7 +15,7 @@ public class SicknessInsuranceService implements SalaryCalculatorService{
     private final RatesConfigurationProperties ratesConfigurationProperties;
     @Override
     public BigDecimal apply(final BigDecimal bigDecimal) {
-        return bigDecimal.multiply(ratesConfigurationProperties.getSicknessZusRate()).setScale(2, RoundingMode.HALF_EVEN);
+        return bigDecimal.multiply(this.ratesConfigurationProperties.getSicknessZusRate()).setScale(2, RoundingMode.HALF_EVEN);
     }
 
     @Override

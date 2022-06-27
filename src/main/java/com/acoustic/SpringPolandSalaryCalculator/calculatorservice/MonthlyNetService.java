@@ -21,9 +21,9 @@ public class MonthlyNetService implements SalaryCalculatorService {
 
     @Override
     public BigDecimal apply(BigDecimal grossMonthlySalary) {
-        return grossMonthlySalary.subtract(totalZusService.apply(grossMonthlySalary))
-                .subtract((taxService.apply(grossMonthlySalary)))
-                .subtract(healthInsuranceService.apply(grossMonthlySalary))
+        return grossMonthlySalary.subtract(this.totalZusService.apply(grossMonthlySalary))
+                .subtract((this.taxService.apply(grossMonthlySalary)))
+                .subtract(this.healthInsuranceService.apply(grossMonthlySalary))
                 .setScale(2, RoundingMode.HALF_EVEN);
     }
 }

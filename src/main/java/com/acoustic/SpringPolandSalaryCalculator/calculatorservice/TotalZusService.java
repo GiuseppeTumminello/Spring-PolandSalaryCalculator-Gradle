@@ -21,7 +21,7 @@ public class TotalZusService implements SalaryCalculatorService{
 
     @Override
     public BigDecimal apply( BigDecimal grossMonthlySalary) {
-        return grossMonthlySalary.multiply(rate.getTotalZusRate()).setScale(2, RoundingMode.HALF_EVEN);
+        return grossMonthlySalary.multiply(this.rate.getTotalZusRate()).setScale(2, RoundingMode.HALF_EVEN);
     }
 
 }

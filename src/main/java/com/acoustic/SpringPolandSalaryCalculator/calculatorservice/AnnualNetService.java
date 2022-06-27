@@ -22,6 +22,6 @@ public class AnnualNetService implements SalaryCalculatorService{
 
     @Override
     public BigDecimal apply(BigDecimal grossMonthlySalary) {
-        return monthlyNetService.apply(grossMonthlySalary).multiply(rate.getMonthNumber());
+        return this.monthlyNetService.apply(grossMonthlySalary).multiply(this.rate.getMonthNumber());
     }
 }

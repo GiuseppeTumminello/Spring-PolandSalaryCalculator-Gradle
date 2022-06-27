@@ -23,9 +23,9 @@ public class TaxService implements SalaryCalculatorService {
     @Override
     public BigDecimal apply(BigDecimal grossMonthlySalary) {
         return (grossMonthlySalary.multiply(grossMonthlySalary)
-                .compareTo(rate.getTaxGrossAmountTrashold()) < 0)
-                ? getTaxAmountBasedOnRate(grossMonthlySalary, rate.getTaxRate32Rate())
-                : getTaxAmountBasedOnRate(grossMonthlySalary, rate.getTaxRate17Rate());
+                .compareTo(this.rate.getTaxGrossAmountTrashold()) < 0)
+                ? getTaxAmountBasedOnRate(grossMonthlySalary, this.rate.getTaxRate32Rate())
+                : getTaxAmountBasedOnRate(grossMonthlySalary, this.rate.getTaxRate17Rate());
     }
 
     @Override
@@ -35,8 +35,8 @@ public class TaxService implements SalaryCalculatorService {
 
 
     private BigDecimal getTaxAmountBasedOnRate(BigDecimal grossMonthlySalary, BigDecimal rate) {
-        return grossMonthlySalary.subtract(totalZusService.apply(grossMonthlySalary))
-                .subtract(healthInsuranceService.apply(grossMonthlySalary))
+        return grossMonthlySalary.subtract(this.totalZusService.apply(grossMonthlySalary))
+                .subtract(this.healthInsuranceService.apply(grossMonthlySalary))
                 .multiply(rate)
                 .setScale(2, RoundingMode.HALF_EVEN);
     }
