@@ -16,7 +16,6 @@ import lombok.Getter;
 @Entity
 @Builder
 @Getter
-@Table()
 public class DataSalaryCalculator {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
