@@ -6,8 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="611964dc-c4cc-4755-b66d-229be52e4a65" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/acoustic/SpringPolandSalaryCalculator/calculatorservice/AnnualGrossServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/acoustic/SpringPolandSalaryCalculator/calculatorservice/AnnualGrossServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/acoustic/SpringPolandSalaryCalculator/calculatorservice/AnnualNetServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/acoustic/SpringPolandSalaryCalculator/calculatorservice/AnnualNetServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/acoustic/SpringPolandSalaryCalculator/controller/SalaryCalculatorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/acoustic/SpringPolandSalaryCalculator/controller/SalaryCalculatorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/acoustic/SpringPolandSalaryCalculator/controller/SalaryCalculatorControllerGetTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/acoustic/SpringPolandSalaryCalculator/controller/SalaryCalculatorControllerGetTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/acoustic/SpringPolandSalaryCalculator/controller/SalaryCalculatorControllerPostTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/acoustic/SpringPolandSalaryCalculator/controller/SalaryCalculatorControllerPostTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Spring-PolandSalaryCalculator.iml" beforeDir="false" />
     </list>
@@ -71,16 +71,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "last.edited.regexp": "Sample Text",
-    "last_opened_file_path": "/Users/giuseppetumminello/Desktop/Java/Spring-PolandSalaryCalculator-Gradle"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;last.edited.regexp&quot;: &quot;Sample Text&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/giuseppetumminello/Desktop/Java/Spring-PolandSalaryCalculator-Gradle&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
@@ -97,7 +97,7 @@
       <recent name="com.acoustic.SpringPolandSalaryCalculator.entity" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.Tests in 'Spring-PolandSalaryCalculator-Gradle.test'">
+  <component name="RunManager" selected="Application.SpringPolandSalaryCalculatorApplication">
     <configuration name="SpringPolandSalaryCalculatorApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.acoustic.SpringPolandSalaryCalculator.SpringPolandSalaryCalculatorApplication" />
       <module name="Spring-PolandSalaryCalculator-Gradle.main" />
@@ -125,29 +125,6 @@
             <option value=":test" />
             <option value="--tests" />
             <option value="&quot;com.acoustic.SpringPolandSalaryCalculator.entity.DataSalaryCalculatorTest&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="SalaryCalculatorControllerPostTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;com.acoustic.SpringPolandSalaryCalculator.controller.SalaryCalculatorControllerPostTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -201,13 +178,36 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
+    <configuration name="Tests in 'com.acoustic.SpringPolandSalaryCalculator.controller'" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;com.acoustic.SpringPolandSalaryCalculator.controller.*&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.SpringPolandSalaryCalculatorApplication" />
+        <item itemvalue="Gradle.Tests in 'com.acoustic.SpringPolandSalaryCalculator'" />
+        <item itemvalue="Gradle.Tests in 'com.acoustic.SpringPolandSalaryCalculator.controller'" />
         <item itemvalue="Gradle.Tests in 'Spring-PolandSalaryCalculator-Gradle.test'" />
         <item itemvalue="Gradle.DataSalaryCalculatorTest" />
-        <item itemvalue="Gradle.SalaryCalculatorControllerPostTest" />
-        <item itemvalue="Gradle.Tests in 'com.acoustic.SpringPolandSalaryCalculator'" />
-        <item itemvalue="Application.SpringPolandSalaryCalculatorApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -238,13 +238,13 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-field">
           <url>file://$PROJECT_DIR$/src/test/java/com/acoustic/SpringPolandSalaryCalculator/controller/SalaryCalculatorControllerPostTest.java</url>
-          <line>37</line>
+          <line>38</line>
           <properties field="dataSalaryCalculatorRepository" class="com.acoustic.SpringPolandSalaryCalculator.controller.SalaryCalculatorControllerPostTest" />
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/com/acoustic/SpringPolandSalaryCalculator/controller/SalaryCalculatorControllerPostTest.java</url>
-          <line>60</line>
+          <line>61</line>
           <properties>
             <option name="lambda-ordinal" value="-1" />
           </properties>

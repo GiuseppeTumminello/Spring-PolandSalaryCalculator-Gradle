@@ -18,6 +18,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
+import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.NestedServletException;
 
 import com.acoustic.SpringPolandSalaryCalculator.calculatorservice.SalaryCalculatorService;

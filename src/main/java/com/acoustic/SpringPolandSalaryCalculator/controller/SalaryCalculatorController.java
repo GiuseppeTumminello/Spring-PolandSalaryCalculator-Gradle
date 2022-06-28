@@ -40,7 +40,7 @@ public class SalaryCalculatorController {
         return this.jobCategories.getJobDepartmentAndTitles().get(departmentName).split(",");
     }
 
-    @GetMapping("/getJobDepartment")
+    @GetMapping("/getJobDepartments")
     public Set<String> getDepartmentName() {
         return this.jobCategories.getJobDepartmentAndTitles().keySet();
     }

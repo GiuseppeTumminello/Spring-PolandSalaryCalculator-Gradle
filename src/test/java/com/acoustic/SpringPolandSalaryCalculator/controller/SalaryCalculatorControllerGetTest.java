@@ -32,7 +32,7 @@ public class SalaryCalculatorControllerGetTest {
     public static final String ENGINEER = "engineer";
     public static final String FINANCE = "finance";
     public static final String IT = "it";
-    private static final String DEPARTMENT_NAME_ENDPOINT = "/getJobDepartment";
+    private static final String DEPARTMENT_NAME_ENDPOINT = "/getJobDepartments";
     private static final String IT_JOB_TITLE_ENDPOINT = "/getJobTitles/"+IT;
     private static final String FINANCE_JOB_TITLE_ENDPOINT = "/getJobTitles/"+FINANCE;
     private static final String ENGINEER_JOB_TITLE_ENDPOINT = "/getJobTitles/"+ENGINEER;
