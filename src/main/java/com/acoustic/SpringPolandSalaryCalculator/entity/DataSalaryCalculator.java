@@ -2,6 +2,7 @@ package com.acoustic.SpringPolandSalaryCalculator.entity;
 
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -23,28 +24,9 @@ public class DataSalaryCalculator {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-
-    private BigDecimal pensionZus;
-
-    private BigDecimal disabilityZus;
-
-    private BigDecimal sicknessZus;
-
-    private BigDecimal totalZus;
-
-    private BigDecimal health;
-
-    private BigDecimal annualGross;
-
-    private BigDecimal tax;
-
-    private BigDecimal netMonthly;
-
-    private BigDecimal annualNet;
-
     private BigDecimal grossMonthly;
-
     private String jobTitle;
+
 
 }
 

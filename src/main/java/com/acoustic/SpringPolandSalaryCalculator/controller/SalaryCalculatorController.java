@@ -54,10 +54,11 @@ public class SalaryCalculatorController {
             @RequestParam(defaultValue = "0", required = false)
             @NotNull String departmentName,
             @RequestParam(defaultValue = "0", required = false)
-            @NotNull int jobTitleId) {
+            @NotNull  int  jobTitleId ) {
         var response = this.salaryCalculatorService.stream()
                 .collect(Collectors.toMap(SalaryCalculatorService::getDescription, e -> e.apply(grossMonthlySalary)));
-        if (this.jobCategoriesConfigurationProperties.getJobDepartmentAndTitles().containsKey(departmentName.toLowerCase())) {
+        if (this.jobCategoriesConfigurationProperties.getJobDepartmentAndTitles()
+                .containsKey(departmentName.toLowerCase())) {
             BigDecimal average = statistic(departmentName, jobTitleId, grossMonthlySalary);
             if (average != null) {
                 response.put("Average", average);
@@ -72,31 +73,16 @@ public class SalaryCalculatorController {
                 .get(departmentName)
                 .split(","));
         if (jobTitleId <= jobTitlesList.size() && jobTitleId >= 1) {
-            this.dataSalaryCalculatorRepository.save(buildDataSalaryCalculator(grossMonthlySalary,
-                    jobTitlesList.get(jobTitleId - 1)));
+            this.dataSalaryCalculatorRepository.save(DataSalaryCalculator.builder()
+                    .grossMonthly(grossMonthlySalary)
+                    .jobTitle(jobTitlesList.get(jobTitleId - 1))
+                    .build());
             return this.dataSalaryCalculatorRepository.findAverageByJobTitle(jobTitlesList.get(jobTitleId - 1));
 
         } else {
             return null;
         }
 
-    }
-
-
-    private DataSalaryCalculator buildDataSalaryCalculator(BigDecimal grossMonthlySalary, String jobTitle) {
-        return DataSalaryCalculator.builder()
-                .annualGross(this.salaryCalculatorService.get(0).apply(grossMonthlySalary))
-                .annualNet(this.salaryCalculatorService.get(1).apply(grossMonthlySalary))
-                .disabilityZus(this.salaryCalculatorService.get(2).apply(grossMonthlySalary))
-                .health(this.salaryCalculatorService.get(3).apply(grossMonthlySalary))
-                .netMonthly(this.salaryCalculatorService.get(4).apply(grossMonthlySalary))
-                .pensionZus(this.salaryCalculatorService.get(5).apply(grossMonthlySalary))
-                .sicknessZus(this.salaryCalculatorService.get(6).apply(grossMonthlySalary))
-                .tax(this.salaryCalculatorService.get(7).apply(grossMonthlySalary))
-                .totalZus(this.salaryCalculatorService.get(8).apply(grossMonthlySalary))
-                .grossMonthly(grossMonthlySalary)
-                .jobTitle(jobTitle)
-                .build();
     }
 
 }
