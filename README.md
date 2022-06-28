@@ -177,8 +177,7 @@ If the user wants to participate in the statistics will also display the average
 # Setup
 
 * Required:
-
-  * Docker
+  * Docker
 
   
 
