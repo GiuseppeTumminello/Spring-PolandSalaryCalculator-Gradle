@@ -25,7 +25,7 @@ public class AnnualGrossServiceTest {
 
 
     @ParameterizedTest
-    @CsvSource({"6000, 72000", "7000, 84000", "15891.68, 190700.16"})
+    @CsvSource({"6000, 72000.00", "7000, 84000.00", "15891.68, 190700.16"})
     void getAnnualGrossSalary(BigDecimal input, BigDecimal expected) {
         assertThat(annualGrossService.apply(input)).isEqualTo(expected);
 

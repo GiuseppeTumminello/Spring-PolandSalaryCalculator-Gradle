@@ -18,7 +18,7 @@ public class AnnualNetService implements SalaryCalculatorService {
 
     @Override
     public String getDescription() {
-        return "Annual net:";
+        return "Annual net";
     }
 
     @Override

@@ -13,6 +13,8 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class TaxService implements SalaryCalculatorService {
 
+
+    public static final int MONTHS_NUMBER = 12;
     private final RatesConfigurationProperties rate;
 
     private final TotalZusService totalZusService;
@@ -22,9 +24,9 @@ public class TaxService implements SalaryCalculatorService {
 
     @Override
     public BigDecimal apply(BigDecimal grossMonthlySalary) {
-        return (grossMonthlySalary.multiply(grossMonthlySalary).compareTo(this.rate.getTaxGrossAmountTrashold()) < 0)
-                ? getTaxAmountBasedOnRate(grossMonthlySalary, this.rate.getTaxRate32Rate())
-                : getTaxAmountBasedOnRate(grossMonthlySalary, this.rate.getTaxRate17Rate());
+        return (grossMonthlySalary.multiply(BigDecimal.valueOf(MONTHS_NUMBER)).compareTo(this.rate.getTaxGrossAmountTrashold()) < 0)
+                ? getTaxAmountBasedOnRate(grossMonthlySalary, this.rate.getTaxRate17Rate())
+                : getTaxAmountBasedOnRate(grossMonthlySalary, this.rate.getTaxRate32Rate());
     }
 
     @Override
