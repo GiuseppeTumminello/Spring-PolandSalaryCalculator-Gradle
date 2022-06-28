@@ -114,7 +114,7 @@
       <recent name="com.acoustic.SpringPolandSalaryCalculator.rates" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.Tests in 'com.acoustic.SpringPolandSalaryCalculator'">
+  <component name="RunManager" selected="Application.SalaryCalculator">
     <configuration name="SalaryCalculator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.acoustic.SpringPolandSalaryCalculator.SalaryCalculator" />
       <module name="Spring-PolandSalaryCalculator-Gradle.main" />

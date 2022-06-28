@@ -2,7 +2,6 @@ package com.acoustic.SpringPolandSalaryCalculator.controller;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -57,13 +56,18 @@ public class SalaryCalculatorController {
             @NotNull String departmentName,
             @RequestParam(defaultValue = "0", required = false)
             @NotNull int  jobTitleId ) {
-        System.out.println(departmentName);
+
         var response = this.salaryCalculatorService.stream()
                 .collect(Collectors.toMap(SalaryCalculatorService::getDescription, e -> e.apply(grossMonthlySalary)));
         if (departmentName.equals("0") || jobTitleId == 0){
             return response;
         }
 
+        return getAverage(grossMonthlySalary, departmentName, jobTitleId, response);
+
+    }
+
+    private Map<String, BigDecimal> getAverage(BigDecimal grossMonthlySalary, String departmentName, int jobTitleId, Map<String, BigDecimal> response) {
         if (this.jobCategoriesConfigurationProperties.getJobDepartmentAndTitles()
                 .containsKey(departmentName.toLowerCase())) {
             BigDecimal average = statistic(departmentName, jobTitleId, grossMonthlySalary);
@@ -73,7 +77,6 @@ public class SalaryCalculatorController {
             }
         }
         throw new IllegalArgumentException("Invalid department name");
-
     }
 
 
