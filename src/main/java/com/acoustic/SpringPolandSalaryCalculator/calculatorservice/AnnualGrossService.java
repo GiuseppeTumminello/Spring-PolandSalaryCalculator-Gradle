@@ -11,9 +11,7 @@ import lombok.RequiredArgsConstructor;
 @Component
 @RequiredArgsConstructor
 public class AnnualGrossService implements SalaryCalculatorService {
-
-    private final RatesConfigurationProperties rate;
-
+    private static final int MONTHS_NUMBER = 12;
 
     @Override
     public String getDescription() {
@@ -22,6 +20,6 @@ public class AnnualGrossService implements SalaryCalculatorService {
 
     @Override
     public BigDecimal apply(BigDecimal grossMonthlySalary) {
-        return grossMonthlySalary.multiply(this.rate.getMonthNumber());
+        return grossMonthlySalary.multiply(BigDecimal.valueOf(MONTHS_NUMBER));
     }
 }

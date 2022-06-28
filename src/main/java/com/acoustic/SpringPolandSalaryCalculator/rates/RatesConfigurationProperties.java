@@ -33,7 +33,5 @@ public class RatesConfigurationProperties {
 
     private BigDecimal taxGrossAmountTrashold;
 
-    private BigDecimal monthNumber;
-
     private BigDecimal minimumSalary;
 }

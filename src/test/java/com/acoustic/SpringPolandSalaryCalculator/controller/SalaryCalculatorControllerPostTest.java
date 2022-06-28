@@ -18,11 +18,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
-import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.NestedServletException;
 
 import com.acoustic.SpringPolandSalaryCalculator.calculatorservice.SalaryCalculatorService;
-import com.acoustic.SpringPolandSalaryCalculator.jobcategories.JobCategories;
+import com.acoustic.SpringPolandSalaryCalculator.jobcategories.JobCategoriesConfigurationProperties;
 import com.acoustic.SpringPolandSalaryCalculator.service.DataSalaryCalculatorRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -38,7 +37,7 @@ public class SalaryCalculatorControllerPostTest {
     @Autowired
     private DataSalaryCalculatorRepository dataSalaryCalculatorRepository;
     @Autowired
-    private JobCategories jobCategories;
+    private JobCategoriesConfigurationProperties jobCategoriesConfigurationProperties;
     @Autowired
     private MockMvc mockMvc;
 
@@ -56,7 +55,7 @@ public class SalaryCalculatorControllerPostTest {
         this.salaryCalculatorService.forEach(service -> expected.put(
                 service.getDescription(),
                 service.apply(grossMonthlySalary)));
-        List<String> jobTitlesList = List.of(this.jobCategories.getJobDepartmentAndTitles()
+        List<String> jobTitlesList = List.of(this.jobCategoriesConfigurationProperties.getJobDepartmentAndTitles()
                 .get(departmentName)
                 .split(","));
         expected.put(

@@ -14,7 +14,7 @@ import lombok.Getter;
 @PropertySource("classpath:jobs.properties")
 @ConfigurationProperties(prefix = "jobs")
 @Configuration
-public class JobCategories {
+public class JobCategoriesConfigurationProperties {
 
 
     @Value("#{${jobs.jobTitles}}")

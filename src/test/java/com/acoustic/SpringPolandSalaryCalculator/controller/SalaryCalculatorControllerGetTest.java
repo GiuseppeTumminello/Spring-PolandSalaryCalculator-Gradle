@@ -18,7 +18,7 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
 
-import com.acoustic.SpringPolandSalaryCalculator.jobcategories.JobCategories;
+import com.acoustic.SpringPolandSalaryCalculator.jobcategories.JobCategoriesConfigurationProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 
@@ -41,7 +41,7 @@ public class SalaryCalculatorControllerGetTest {
 
 
     @Autowired
-    private JobCategories jobCategories;
+    private JobCategoriesConfigurationProperties jobCategoriesConfigurationProperties;
 
     @Autowired
     private MockMvc mockMvc;
@@ -52,7 +52,7 @@ public class SalaryCalculatorControllerGetTest {
 
     @Test
     public void getDepartmentName() throws Exception {
-        String expected = this.objectMapper.writeValueAsString(this.jobCategories.getJobDepartmentAndTitles()
+        String expected = this.objectMapper.writeValueAsString(this.jobCategoriesConfigurationProperties.getJobDepartmentAndTitles()
                 .entrySet()
                 .stream()
                 .map(Map.Entry::getKey)
@@ -72,7 +72,7 @@ public class SalaryCalculatorControllerGetTest {
 
     @Test
     public void getJobTitlesIt() throws Exception {
-        String expected = this.objectMapper.writeValueAsString(List.of(this.jobCategories.getJobDepartmentAndTitles()
+        String expected = this.objectMapper.writeValueAsString(List.of(this.jobCategoriesConfigurationProperties.getJobDepartmentAndTitles()
                 .get(IT)
                 .split(",")));
         var actual = this.mockMvc.perform(get(IT_JOB_TITLE_ENDPOINT).contentType(MediaType.APPLICATION_JSON))
@@ -87,7 +87,7 @@ public class SalaryCalculatorControllerGetTest {
 
     @Test
     public void getJobTitlesFinance() throws Exception {
-        String expected = this.objectMapper.writeValueAsString(List.of(this.jobCategories.getJobDepartmentAndTitles()
+        String expected = this.objectMapper.writeValueAsString(List.of(this.jobCategoriesConfigurationProperties.getJobDepartmentAndTitles()
                 .get(FINANCE)
                 .split(",")));
         var actual = this.mockMvc.perform(get(FINANCE_JOB_TITLE_ENDPOINT).contentType(MediaType.APPLICATION_JSON))
@@ -102,7 +102,7 @@ public class SalaryCalculatorControllerGetTest {
 
     @Test
     public void getJobTitlesEngineer() throws Exception {
-        String expected = this.objectMapper.writeValueAsString(List.of(this.jobCategories.getJobDepartmentAndTitles()
+        String expected = this.objectMapper.writeValueAsString(List.of(this.jobCategoriesConfigurationProperties.getJobDepartmentAndTitles()
                 .get(ENGINEER)
                 .split(",")));
         var actual = this.mockMvc.perform(get(ENGINEER_JOB_TITLE_ENDPOINT).contentType(MediaType.APPLICATION_JSON))
@@ -117,7 +117,7 @@ public class SalaryCalculatorControllerGetTest {
 
     @Test
     public void getJobTitlesRestaurant() throws Exception {
-        String expected = this.objectMapper.writeValueAsString(List.of(this.jobCategories.getJobDepartmentAndTitles()
+        String expected = this.objectMapper.writeValueAsString(List.of(this.jobCategoriesConfigurationProperties.getJobDepartmentAndTitles()
                 .get(RESTAURANT)
                 .split(",")));
         var actual = this.mockMvc.perform(get(RESTAURANT_JOB_TITLE_ENDPOINT).contentType(MediaType.APPLICATION_JSON))
@@ -133,7 +133,7 @@ public class SalaryCalculatorControllerGetTest {
 
     @Test
     public void getJobTitlesAirline() throws Exception {
-        String expected = this.objectMapper.writeValueAsString(List.of(this.jobCategories.getJobDepartmentAndTitles()
+        String expected = this.objectMapper.writeValueAsString(List.of(this.jobCategoriesConfigurationProperties.getJobDepartmentAndTitles()
                 .get(AIRLINE)
                 .split(",")));
         var actual = this.mockMvc.perform(get(AIRLINE_JOB_TITLE_ENDPOINT).contentType(MediaType.APPLICATION_JSON))

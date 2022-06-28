@@ -5,10 +5,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 
 @SpringBootApplication
-public class SpringPolandSalaryCalculatorApplication {
+public class SalaryCalculator {
 
     public static void main(String[] args) {
-        SpringApplication.run(SpringPolandSalaryCalculatorApplication.class, args);
+        SpringApplication.run(SalaryCalculator.class, args);
 
     }
 }

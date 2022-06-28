@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.acoustic.SpringPolandSalaryCalculator.calculatorservice.SalaryCalculatorService;
 import com.acoustic.SpringPolandSalaryCalculator.entity.DataSalaryCalculator;
-import com.acoustic.SpringPolandSalaryCalculator.jobcategories.JobCategories;
+import com.acoustic.SpringPolandSalaryCalculator.jobcategories.JobCategoriesConfigurationProperties;
 import com.acoustic.SpringPolandSalaryCalculator.service.DataSalaryCalculatorRepository;
 import lombok.RequiredArgsConstructor;
 
@@ -30,24 +30,24 @@ public class SalaryCalculatorController {
     public static final int MINIMUM_GROSS = 2000;
     private final DataSalaryCalculatorRepository dataSalaryCalculatorRepository;
     private final List<SalaryCalculatorService> salaryCalculatorService;
-    private final JobCategories jobCategories;
+    private final JobCategoriesConfigurationProperties jobCategoriesConfigurationProperties;
 
 
     @GetMapping("/getJobTitles/{departmentName}")
     public String[] getJobTitles(
             @PathVariable
             String departmentName) {
-        return this.jobCategories.getJobDepartmentAndTitles().get(departmentName).split(",");
+        return this.jobCategoriesConfigurationProperties.getJobDepartmentAndTitles().get(departmentName).split(",");
     }
 
     @GetMapping("/getJobDepartments")
     public Set<String> getDepartmentName() {
-        return this.jobCategories.getJobDepartmentAndTitles().keySet();
+        return this.jobCategoriesConfigurationProperties.getJobDepartmentAndTitles().keySet();
     }
 
 
     @PostMapping("/calculator/{grossMonthlySalary}")
-    public Map<String, BigDecimal> getSalaryCalculation(
+    public Map<String, BigDecimal> calculateSalary(
             @PathVariable
             @Min(value = MINIMUM_GROSS,
                     message = "Must be Greater than or equal to 2000.00") @NotNull BigDecimal grossMonthlySalary,
@@ -57,7 +57,7 @@ public class SalaryCalculatorController {
             @NotNull int jobTitleId) {
         var response = this.salaryCalculatorService.stream()
                 .collect(Collectors.toMap(SalaryCalculatorService::getDescription, e -> e.apply(grossMonthlySalary)));
-        if (this.jobCategories.getJobDepartmentAndTitles().containsKey(departmentName.toLowerCase())) {
+        if (this.jobCategoriesConfigurationProperties.getJobDepartmentAndTitles().containsKey(departmentName.toLowerCase())) {
             BigDecimal average = statistic(departmentName, jobTitleId, grossMonthlySalary);
             if (average != null) {
                 response.put("Average", average);
@@ -68,7 +68,7 @@ public class SalaryCalculatorController {
 
 
     public BigDecimal statistic(String departmentName, int jobTitleId, BigDecimal grossMonthlySalary) {
-        List<String> jobTitlesList = List.of(this.jobCategories.getJobDepartmentAndTitles()
+        List<String> jobTitlesList = List.of(this.jobCategoriesConfigurationProperties.getJobDepartmentAndTitles()
                 .get(departmentName)
                 .split(","));
         if (jobTitleId <= jobTitlesList.size() && jobTitleId >= 1) {
