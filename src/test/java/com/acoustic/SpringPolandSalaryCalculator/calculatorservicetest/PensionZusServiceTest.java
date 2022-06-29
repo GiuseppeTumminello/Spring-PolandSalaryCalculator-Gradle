@@ -1,5 +1,4 @@
-package com.acoustic.SpringPolandSalaryCalculator.calculatorservice;
-
+package com.acoustic.SpringPolandSalaryCalculator.calculatorservicetest;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.BDDMockito.given;
@@ -17,18 +16,19 @@ import com.acoustic.SpringPolandSalaryCalculator.rates.RatesConfigurationPropert
 
 
 @ExtendWith(MockitoExtension.class)
-public class AnnualGrossServiceTest {
+class PensionZusServiceTest {
 
     @InjectMocks
-    AnnualGrossService annualGrossService;
-
+    private PensionZusService pensionZusService;
+    @Mock
+    private RatesConfigurationProperties ratesConfigurationProperties;
 
 
     @ParameterizedTest
-    @CsvSource({"6000, 72000.00", "7000, 84000.00", "15891.68, 190700.16"})
-    void getAnnualGrossSalary(BigDecimal input, BigDecimal expected) {
-        assertThat(annualGrossService.apply(input)).isEqualTo(expected);
-
+    @CsvSource({"6000.,585.60, 0.0976", "7000, 683.20, 0.0976", "15891.68, 1551.03, 0.0976"})
+    public void getPensionZus(BigDecimal input, BigDecimal expected, BigDecimal rate) {
+        given(ratesConfigurationProperties.getPensionZusRate()).willReturn(rate);
+        assertThat(pensionZusService.apply(input)).isEqualTo(expected);
     }
 
 }

@@ -1,4 +1,4 @@
-package com.acoustic.SpringPolandSalaryCalculator.calculatorservice;
+package com.acoustic.SpringPolandSalaryCalculator.calculatorservicetest;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.BDDMockito.given;
@@ -11,8 +11,6 @@ import org.junit.jupiter.params.provider.CsvSource;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-
-import com.acoustic.SpringPolandSalaryCalculator.rates.RatesConfigurationProperties;
 
 
 @ExtendWith(MockitoExtension.class)

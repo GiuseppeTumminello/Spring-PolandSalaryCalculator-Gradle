@@ -1,6 +1,6 @@
-package com.acoustic.SpringPolandSalaryCalculator.calculatorservice;
+package com.acoustic.SpringPolandSalaryCalculator.calculatorservicetest;
 
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.BDDMockito.given;
 
 import java.math.BigDecimal;
@@ -16,22 +16,17 @@ import com.acoustic.SpringPolandSalaryCalculator.rates.RatesConfigurationPropert
 
 
 @ExtendWith(MockitoExtension.class)
-class TotalZusServiceTest {
-
+class DisabilityZusServiceTest {
 
     @InjectMocks
-    private TotalZusService totalZusService;
-
-
+    private DisabilityZusService disabilityZusService;
     @Mock
     private RatesConfigurationProperties ratesConfigurationProperties;
 
     @ParameterizedTest
-    @CsvSource({"6000, 822.60, 0.1371", "7000, 959.70, 0.1371", "15891.68, 2178.75, 0.1371"})
-    public void getTotalZus(BigDecimal input, BigDecimal expected, BigDecimal rate) {
-        given(ratesConfigurationProperties.getTotalZusRate()).willReturn(rate);
-        assertThat(totalZusService.apply(input)).isEqualTo(expected);
-
+    @CsvSource({"6000, 90.00, 0.0150", "7000, 105.00, 0.0150", "15891.68, 238.38, 0.0150"})
+    public void getDisabilityZus(BigDecimal input, BigDecimal expected, BigDecimal rate) {
+        given(ratesConfigurationProperties.getDisabilityZusRate()).willReturn(rate);
+        assertThat(disabilityZusService.apply(input)).isEqualTo(expected);
     }
-
 }

@@ -1,4 +1,4 @@
-package com.acoustic.SpringPolandSalaryCalculator.calculatorservice;
+package com.acoustic.SpringPolandSalaryCalculator.calculatorservicetest;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;

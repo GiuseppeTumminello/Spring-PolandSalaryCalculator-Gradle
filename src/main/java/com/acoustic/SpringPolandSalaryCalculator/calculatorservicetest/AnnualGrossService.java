@@ -1,11 +1,10 @@
-package com.acoustic.SpringPolandSalaryCalculator.calculatorservice;
+package com.acoustic.SpringPolandSalaryCalculator.calculatorservicetest;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
 import org.springframework.stereotype.Component;
 
-import com.acoustic.SpringPolandSalaryCalculator.rates.RatesConfigurationProperties;
 import lombok.RequiredArgsConstructor;
 
 

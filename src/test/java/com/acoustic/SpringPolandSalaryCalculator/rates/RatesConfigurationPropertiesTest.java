@@ -1,4 +1,4 @@
-package com.acoustic.SpringPolandSalaryCalculator.controller;
+package com.acoustic.SpringPolandSalaryCalculator.rates;
 
 import java.math.BigDecimal;
 
@@ -6,13 +6,12 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 
-import lombok.Getter;
-import lombok.Setter;
-
 
 @ConfigurationProperties(prefix = "response")
 @PropertySource("classpath:response-test.properties")
 @Configuration
+
+
 public class RatesConfigurationPropertiesTest {
 
     private BigDecimal pensionZusRate;

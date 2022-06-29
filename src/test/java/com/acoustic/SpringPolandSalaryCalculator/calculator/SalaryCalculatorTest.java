@@ -1,4 +1,4 @@
-package com.acoustic.SpringPolandSalaryCalculator.controller;
+package com.acoustic.SpringPolandSalaryCalculator.calculator;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -8,21 +8,23 @@ import java.util.function.UnaryOperator;
 
 import org.springframework.stereotype.Component;
 
+import com.acoustic.SpringPolandSalaryCalculator.rates.RatesConfigurationPropertiesTest;
+
 
 @Component
-public class SalaryCalculatorTest {
+public class  SalaryCalculatorTest {
 
 
-    public SalaryCalculatorTest(final RatesConfigurationPropertiesTest ratesConfigurationPropertiesTest) {
+    private static final int MONTHS_NUMBER = 12;
+    private final RatesConfigurationPropertiesTest ratesConfigurationPropertiesTest;
+
+
+
+   public SalaryCalculatorTest(final RatesConfigurationPropertiesTest ratesConfigurationPropertiesTest) {
         this.ratesConfigurationPropertiesTest = ratesConfigurationPropertiesTest;
 
     }
 
-    private static final int MONTHS_NUMBER = 12;
-
-
-
-    private final RatesConfigurationPropertiesTest ratesConfigurationPropertiesTest;
 
     private UnaryOperator<BigDecimal> getAmountByRate(BigDecimal rate) {
         return gross -> gross.multiply(rate).setScale(2, RoundingMode.HALF_EVEN);
@@ -36,7 +38,8 @@ public class SalaryCalculatorTest {
     }
 
     private UnaryOperator<BigDecimal> getNet() {
-        return gross -> gross.subtract(getAmountByRate(ratesConfigurationPropertiesTest.getTotalZusRate()).apply(gross).add((getTaxAmount().apply(gross)).add(getHealth().apply(gross)))).setScale(2, RoundingMode.HALF_EVEN);
+        return gross -> gross.subtract(getAmountByRate(ratesConfigurationPropertiesTest.getTotalZusRate()).apply(gross)
+                .add((getTaxAmount().apply(gross)).add(getHealth().apply(gross)))).setScale(2, RoundingMode.HALF_EVEN);
     }
 
 
@@ -49,7 +52,9 @@ public class SalaryCalculatorTest {
     private UnaryOperator<BigDecimal> getTaxAmount() {
         return gross -> (gross.multiply(BigDecimal.valueOf(MONTHS_NUMBER))
                 .compareTo(ratesConfigurationPropertiesTest.getTaxGrossAmountTrashold()) < 0)
-                ? getTaxAmountBasedOnRate(gross, ratesConfigurationPropertiesTest.getTaxRate17Rate())
+                ? getTaxAmountBasedOnRate(
+                gross,
+                ratesConfigurationPropertiesTest.getTaxRate17Rate())
                 : getTaxAmountBasedOnRate(gross, ratesConfigurationPropertiesTest.getTaxRate32Rate());
     }
 
@@ -72,14 +77,19 @@ public class SalaryCalculatorTest {
         expected.put("Disability zus", getAmountByRate(ratesConfigurationPropertiesTest.getDisabilityZusRate()).apply(grossMonthlySalary));
         expected.put("Sickness insurance", getAmountByRate(ratesConfigurationPropertiesTest.getSicknessZusRate()).apply(grossMonthlySalary));
         expected.put("Tax amount", getTaxAmount().apply(grossMonthlySalary));
+        return checkIfAverage(grossMonthlySalary, average, expected);
+
+    }
+
+    private Map<String, BigDecimal> checkIfAverage(BigDecimal grossMonthlySalary, boolean average, Map<String, BigDecimal> expected) {
         if (average) {
             expected.put("Average", grossMonthlySalary.setScale(2, RoundingMode.HALF_EVEN));
             expected.put("Total zus", getAmountByRate(ratesConfigurationPropertiesTest.getTotalZusRate()).apply(grossMonthlySalary));
             return expected;
         }
         expected.put("Total zus", getAmountByRate(ratesConfigurationPropertiesTest.getTotalZusRate()).apply(grossMonthlySalary));
-        return expected;
 
+        return expected;
     }
 }
 

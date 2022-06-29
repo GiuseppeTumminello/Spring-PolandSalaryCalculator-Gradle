@@ -18,7 +18,8 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.web.util.NestedServletException;
 
-import com.acoustic.SpringPolandSalaryCalculator.calculatorservice.SalaryCalculatorService;
+import com.acoustic.SpringPolandSalaryCalculator.calculator.SalaryCalculatorTest;
+import com.acoustic.SpringPolandSalaryCalculator.calculatorservicetest.SalaryCalculatorService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 
@@ -46,34 +47,34 @@ public class SalaryCalculatorControllerPostTest {
 
 
     @ParameterizedTest
-    @CsvSource({"6000, finance, 1",
-            "7000, it, 2",
-            "15891.68, airline, 1",
-            "7700, restaurant, 6",
-            "12191.68, it, 10",
-            "185891.68, finance, 2"})
-    public void getSalaryCalculation(BigDecimal grossMonthlySalary, String departmentName, int jobTitleId)
+    @CsvSource({"6000, finance, 1, true",
+            "7000, it, 2, true",
+            "15891.68, airline, 1, true",
+            "7700, restaurant, 6, true",
+            "12191.68, it, 10, true",
+            "185891.68, finance, 2, true"})
+    public void getSalaryCalculation(BigDecimal grossMonthlySalary, String departmentName, int jobTitleId, boolean average)
             throws Exception {
+
         this.mockMvc.perform(post(
                         CALCULATOR_ENDPOINTS + grossMonthlySalary + DEPARTMENT_NAME_REQUEST_PARAM + departmentName +
                                 JOB_TITLE_ID_REQUEST_PARAM + jobTitleId))
                 .andExpect(status().isOk())
                 .andExpect(MockMvcResultMatchers.content()
-                        .string(objectMapper.writeValueAsString(salaryCalculatorTest.expectedValue(
-                                grossMonthlySalary,
-                                true))));
+                        .string(objectMapper.writeValueAsString(salaryCalculatorTest.expectedValue(grossMonthlySalary,
+                                average))));
 
     }
 
     @ParameterizedTest
-    @CsvSource({"6000, finance, -10",
-            "7000, it, -1000",
-            "15891.68, airline, 11",
-            "7700, restaurant, 20",
-            "12191.68, it, 30",
-            "185891.68, finance, 40"})
+    @CsvSource({"6000, finance, -10, true",
+            "7000, it, -1000, true",
+            "15891.68, airline, 11, true",
+            "7700, restaurant, 20, true",
+            "12191.68, it, 30, true",
+            "185891.68, finance, 40, true"})
     public void getSalaryCalculationIdOutOfBounds(
-            BigDecimal grossMonthlySalary, String departmentName, int jobTitleId) {
+            BigDecimal grossMonthlySalary, String departmentName, int jobTitleId, boolean average) {
 
         Assertions.assertThrows(NestedServletException.class,
                 () -> this.mockMvc.perform(post(
@@ -83,20 +84,20 @@ public class SalaryCalculatorControllerPostTest {
                         .andExpect(MockMvcResultMatchers.content()
                                 .string(this.objectMapper.writeValueAsString(salaryCalculatorTest.expectedValue(
                                         grossMonthlySalary,
-                                        true)))));
+                                        average)))));
 
     }
 
 
     @ParameterizedTest
-    @CsvSource({"6000, fff, 1",
-            "7000, its, 1",
-            "15891.68, airlines, 1",
-            "7700, restaurants, 1",
-            "12191.68, rest, 2",
-            "185891.68, finances, 3"})
+    @CsvSource({"6000, fff, 1, true",
+            "7000, its, 1, true",
+            "15891.68, airlines, 1, true",
+            "7700, restaurants, 1, true",
+            "12191.68, rest, 2, true",
+            "185891.68, finances, 3, true"})
     public void getSalaryCalculationWrongDepartmentName(
-            BigDecimal grossMonthlySalary, String departmentName, int jobTitleId) {
+            BigDecimal grossMonthlySalary, String departmentName, int jobTitleId, boolean average) {
 
         Assertions.assertThrows(NestedServletException.class,
                 () -> this.mockMvc.perform(post(
@@ -106,19 +107,19 @@ public class SalaryCalculatorControllerPostTest {
                         .andExpect(MockMvcResultMatchers.content()
                                 .string(this.objectMapper.writeValueAsString(salaryCalculatorTest.expectedValue(
                                         grossMonthlySalary,
-                                        true)))));
+                                        average)))));
     }
 
 
     @ParameterizedTest
-    @CsvSource({"-6000, finance, 1",
-            "-7000, it, 1",
-            "-15891.68, airline, 1",
-            "-7700, restaurant, 1",
-            "1999.9999, it, 2",
-            "0, finance, 3"})
+    @CsvSource({"-6000, finance, 1, true",
+            "-7000, it, 1, true",
+            "-15891.68, airline, 1, true",
+            "-7700, restaurant, 1, true",
+            "1999.9999, it, 2, true",
+            "0, finance, 3, true"})
     public void getSalaryCalculationGrossBelowTrashHold(
-            BigDecimal grossMonthlySalary, String departmentName, int jobTitleId) {
+            BigDecimal grossMonthlySalary, String departmentName, int jobTitleId, boolean average) {
 
         Assertions.assertThrows(NestedServletException.class,
                 () -> this.mockMvc.perform(post(
@@ -128,21 +129,20 @@ public class SalaryCalculatorControllerPostTest {
                         .andExpect(MockMvcResultMatchers.content()
                                 .string(this.objectMapper.writeValueAsString(salaryCalculatorTest.expectedValue(
                                         grossMonthlySalary,
-                                        true)))));
+                                        average)))));
     }
 
 
     @ParameterizedTest
-    @CsvSource({"6000", "7000", "15891.68", "7700", "2999.9999"})
+    @CsvSource({"6000, false", "7000, false", "15891.68, false", "7700, false", "2999.9999, false"})
 
-    public void getSalaryCalculationGrossNoStatistic(BigDecimal grossMonthlySalary) throws Exception {
+    public void getSalaryCalculationGrossNoStatistic(BigDecimal grossMonthlySalary, boolean average) throws Exception {
 
         this.mockMvc.perform(post(CALCULATOR_ENDPOINTS + grossMonthlySalary))
                 .andExpect(status().isOk())
                 .andExpect(MockMvcResultMatchers.content()
-                        .string(objectMapper.writeValueAsString(salaryCalculatorTest.expectedValue(
-                                grossMonthlySalary,
-                                false))));
+                        .string(objectMapper.writeValueAsString(salaryCalculatorTest.expectedValue(grossMonthlySalary,
+                                average))));
 
     }
 

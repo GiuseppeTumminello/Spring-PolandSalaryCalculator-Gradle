@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.acoustic.SpringPolandSalaryCalculator.calculatorservice.SalaryCalculatorService;
+import com.acoustic.SpringPolandSalaryCalculator.calculatorservicetest.SalaryCalculatorService;
 import com.acoustic.SpringPolandSalaryCalculator.entity.DataSalaryCalculator;
 import com.acoustic.SpringPolandSalaryCalculator.jobcategories.JobCategoriesConfigurationProperties;
 import com.acoustic.SpringPolandSalaryCalculator.service.DataSalaryCalculatorRepository;
@@ -60,6 +60,7 @@ public class SalaryCalculatorController {
         var response = this.salaryCalculatorService.stream()
                 .collect(Collectors.toMap(SalaryCalculatorService::getDescription, e -> e.apply(grossMonthlySalary)));
         if (departmentName.equals("0") || jobTitleId == 0){
+
             return response;
         }
 
