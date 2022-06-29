@@ -34,6 +34,7 @@ public class SalaryCalculatorController {
     private final JobCategoriesConfigurationProperties jobCategoriesConfigurationProperties;
 
 
+
     @GetMapping("/getJobTitles/{departmentName}")
     public String[] getJobTitles(
             @PathVariable
@@ -55,7 +56,8 @@ public class SalaryCalculatorController {
             @RequestParam(defaultValue = "0", required = false)
             @NotNull String departmentName,
             @RequestParam(defaultValue = "0", required = false)
-            @NotNull int  jobTitleId ) {
+            @NotNull int jobTitleId ) {
+
 
         var response = this.salaryCalculatorService.stream()
                 .collect(Collectors.toMap(SalaryCalculatorService::getDescription, e -> e.apply(grossMonthlySalary)));

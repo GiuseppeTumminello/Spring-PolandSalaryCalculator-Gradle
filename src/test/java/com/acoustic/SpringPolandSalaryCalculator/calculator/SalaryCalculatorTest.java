@@ -5,19 +5,15 @@ import java.math.RoundingMode;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.UnaryOperator;
-
 import org.springframework.stereotype.Component;
-
 import com.acoustic.SpringPolandSalaryCalculator.rates.RatesConfigurationPropertiesTest;
 
 
 @Component
 public class  SalaryCalculatorTest {
 
-
     private static final int MONTHS_NUMBER = 12;
     private final RatesConfigurationPropertiesTest ratesConfigurationPropertiesTest;
-
 
 
    public SalaryCalculatorTest(final RatesConfigurationPropertiesTest ratesConfigurationPropertiesTest) {
@@ -25,11 +21,9 @@ public class  SalaryCalculatorTest {
 
     }
 
-
     private UnaryOperator<BigDecimal> getAmountByRate(BigDecimal rate) {
         return gross -> gross.multiply(rate).setScale(2, RoundingMode.HALF_EVEN);
     }
-
 
     private UnaryOperator<BigDecimal> getHealth() {
         return gross -> gross.subtract(getAmountByRate(ratesConfigurationPropertiesTest.getTotalZusRate()).apply(gross))

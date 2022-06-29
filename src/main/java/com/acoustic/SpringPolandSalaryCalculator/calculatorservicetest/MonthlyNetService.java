@@ -16,6 +16,7 @@ public class MonthlyNetService implements SalaryCalculatorService {
     private final TaxService taxService;
     private final HealthInsuranceService healthInsuranceService;
 
+
     @Override
     public String getDescription() {
         return "Monthly net";
@@ -28,4 +29,5 @@ public class MonthlyNetService implements SalaryCalculatorService {
                 .subtract(this.healthInsuranceService.apply(grossMonthlySalary))
                 .setScale(2, RoundingMode.HALF_EVEN);
     }
+
 }
