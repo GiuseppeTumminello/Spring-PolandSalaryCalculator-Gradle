@@ -58,7 +58,7 @@ public class SalaryCalculatorController {
             @RequestParam(required = false)
             Integer jobTitleId) {
         Map<String, BigDecimal> response = new LinkedHashMap<>();
-        calculateTaxes(grossMonthlySalary, response);
+        responseWithoutStatistics(grossMonthlySalary, response);
         if (departmentName == null || jobTitleId == null) {
             return response;
         }
@@ -66,33 +66,27 @@ public class SalaryCalculatorController {
 
     }
 
-    private void calculateTaxes(BigDecimal grossMonthlySalary, Map<String, BigDecimal> response) {
+    private void responseWithoutStatistics(BigDecimal grossMonthlySalary, Map<String, BigDecimal> response) {
         salaryCalculatorService.sort(Comparator.comparingInt(SalaryCalculatorService::getOrder));
         BigDecimal grossMonthlySalaryMinusTaxes = grossMonthlySalary;
         BigDecimal tax = null;
+        final int taxesOrder = 3;
+        final int netOrder = 4;
         for (var service : salaryCalculatorService) {
             if (service.getOrder() > 5) {
-                response.put(
-                        service.getDescription(),
-                        service.apply(grossMonthlySalary).setScale(2, RoundingMode.HALF_EVEN));
+                response.put(service.getDescription(), service.apply(grossMonthlySalary).setScale(2, RoundingMode.HALF_EVEN));
             } else {
-                response.put(
-                        service.getDescription(),
-                        service.apply(grossMonthlySalaryMinusTaxes).setScale(2, RoundingMode.HALF_EVEN));
-                if (service.getOrder() == 3) {
-                    tax = service.apply(grossMonthlySalary);
-                    response.put(service.getDescription(), tax);
-                    continue;
+                response.put(service.getDescription(), service.apply(grossMonthlySalaryMinusTaxes).setScale(2, RoundingMode.HALF_EVEN));
 
-                }
-                if (service.getOrder() == 4) {
-                    grossMonthlySalaryMinusTaxes = grossMonthlySalaryMinusTaxes.subtract(tax);
-                    response.put(service.getDescription(), service.apply(grossMonthlySalaryMinusTaxes));
+                if (service.getOrder() == taxesOrder) {
+                    response.put(service.getDescription(), tax = service.apply(grossMonthlySalary));
                     continue;
                 }
-                grossMonthlySalaryMinusTaxes = grossMonthlySalaryMinusTaxes.subtract(service.apply(
-                        grossMonthlySalaryMinusTaxes));
-
+                if (service.getOrder() == netOrder) {
+                    response.put(service.getDescription(), service.apply(grossMonthlySalaryMinusTaxes = grossMonthlySalaryMinusTaxes.subtract(tax)));
+                    continue;
+                }
+                grossMonthlySalaryMinusTaxes = grossMonthlySalaryMinusTaxes.subtract(service.apply(grossMonthlySalaryMinusTaxes));
             }
         }
     }
