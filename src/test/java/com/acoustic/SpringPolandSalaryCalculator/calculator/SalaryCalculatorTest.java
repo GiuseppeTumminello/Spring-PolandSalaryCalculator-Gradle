@@ -12,7 +12,6 @@ import com.acoustic.SpringPolandSalaryCalculator.rates.RatesConfigurationPropert
 
 
 @Component
-
 public class SalaryCalculatorTest {
 
     private static final int MONTHS_NUMBER = 12;
@@ -49,7 +48,9 @@ public class SalaryCalculatorTest {
     private UnaryOperator<BigDecimal> getTaxAmount() {
         return gross -> (gross.multiply(BigDecimal.valueOf(MONTHS_NUMBER))
                 .compareTo(ratesConfigurationPropertiesTest.getTaxGrossAmountTrashold()) < 0)
-                ? getTaxAmountBasedOnRate(gross, ratesConfigurationPropertiesTest.getTaxRate17Rate())
+                ? getTaxAmountBasedOnRate(
+                gross,
+                ratesConfigurationPropertiesTest.getTaxRate17Rate())
                 : getTaxAmountBasedOnRate(gross, ratesConfigurationPropertiesTest.getTaxRate32Rate());
     }
 
@@ -87,9 +88,7 @@ public class SalaryCalculatorTest {
     }
 
     private Map<String, BigDecimal> checkIfAverage(
-            BigDecimal grossMonthlySalary,
-            boolean average,
-            Map<String, BigDecimal> expected) {
+            BigDecimal grossMonthlySalary, boolean average, Map<String, BigDecimal> expected) {
         if (average) {
             expected.put("Average", grossMonthlySalary.setScale(2, RoundingMode.HALF_EVEN));
 
