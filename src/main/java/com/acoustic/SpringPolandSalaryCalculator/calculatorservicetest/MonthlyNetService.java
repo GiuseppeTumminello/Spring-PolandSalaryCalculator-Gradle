@@ -12,10 +12,10 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class MonthlyNetService implements SalaryCalculatorService {
 
-    private final TotalZusService totalZusService;
-    private final TaxService taxService;
-    private final HealthInsuranceService healthInsuranceService;
-
+    @Override
+    public int getOrder() {
+        return 4;
+    }
 
     @Override
     public String getDescription() {
@@ -24,10 +24,6 @@ public class MonthlyNetService implements SalaryCalculatorService {
 
     @Override
     public BigDecimal apply(BigDecimal grossMonthlySalary) {
-        return grossMonthlySalary.subtract(this.totalZusService.apply(grossMonthlySalary))
-                .subtract((this.taxService.apply(grossMonthlySalary)))
-                .subtract(this.healthInsuranceService.apply(grossMonthlySalary))
-                .setScale(2, RoundingMode.HALF_EVEN);
+        return grossMonthlySalary.setScale(2, RoundingMode.HALF_EVEN);
     }
-
 }

@@ -7,7 +7,6 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import java.math.BigDecimal;
-import java.util.List;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -22,7 +21,6 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.web.util.NestedServletException;
 
 import com.acoustic.SpringPolandSalaryCalculator.calculator.SalaryCalculatorTest;
-import com.acoustic.SpringPolandSalaryCalculator.calculatorservicetest.SalaryCalculatorService;
 import com.acoustic.SpringPolandSalaryCalculator.service.DataSalaryCalculatorRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -30,7 +28,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 @AutoConfigureMockMvc
 @SpringBootTest
 @ActiveProfiles("test")
-
 public class SalaryCalculatorControllerPostTest {
 
 
@@ -45,15 +42,10 @@ public class SalaryCalculatorControllerPostTest {
     @Autowired
     private ObjectMapper objectMapper;
     @Autowired
-    private List<SalaryCalculatorService> salaryCalculatorService;
-    @Autowired
     private SalaryCalculatorTest salaryCalculatorTest;
 
     @MockBean
     private DataSalaryCalculatorRepository dataSalaryCalculatorRepository;
-
-
-
 
 
     @ParameterizedTest
@@ -63,8 +55,8 @@ public class SalaryCalculatorControllerPostTest {
             "7700, restaurant, 6, true",
             "12191.68, it, 10, true",
             "185891.68, finance, 2, true"})
-    public void getSalaryCalculation(BigDecimal grossMonthlySalary, String departmentName, int jobTitleId, boolean average)
-            throws Exception {
+    public void getSalaryCalculation(
+            BigDecimal grossMonthlySalary, String departmentName, int jobTitleId, boolean average) throws Exception {
         given(dataSalaryCalculatorRepository.findAverageByJobTitle(any())).willReturn(grossMonthlySalary);
         this.mockMvc.perform(post(
                         CALCULATOR_ENDPOINTS + grossMonthlySalary + DEPARTMENT_NAME_REQUEST_PARAM + departmentName +

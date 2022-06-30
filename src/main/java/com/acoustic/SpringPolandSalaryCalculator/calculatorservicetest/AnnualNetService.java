@@ -10,10 +10,13 @@ import lombok.RequiredArgsConstructor;
 @Component
 @RequiredArgsConstructor
 public class AnnualNetService implements SalaryCalculatorService {
+
     private static final int MONTHS_NUMBER = 12;
 
-    private final MonthlyNetService monthlyNetService;
-
+    @Override
+    public int getOrder() {
+        return 5;
+    }
 
     @Override
     public String getDescription() {
@@ -22,6 +25,6 @@ public class AnnualNetService implements SalaryCalculatorService {
 
     @Override
     public BigDecimal apply(BigDecimal grossMonthlySalary) {
-        return this.monthlyNetService.apply(grossMonthlySalary).multiply(BigDecimal.valueOf(MONTHS_NUMBER));
+        return grossMonthlySalary.multiply(BigDecimal.valueOf(MONTHS_NUMBER));
     }
 }

@@ -6,12 +6,15 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 
+import lombok.Getter;
+import lombok.Setter;
+
 
 @ConfigurationProperties(prefix = "response")
 @PropertySource("classpath:response-test.properties")
 @Configuration
-
-
+@Getter
+@Setter
 public class RatesConfigurationPropertiesTest {
 
     private BigDecimal pensionZusRate;
@@ -32,75 +35,4 @@ public class RatesConfigurationPropertiesTest {
 
     private BigDecimal minimumSalary;
 
-    public BigDecimal getPensionZusRate() {
-        return pensionZusRate;
-    }
-
-    public void setPensionZusRate(final BigDecimal pensionZusRate) {
-        this.pensionZusRate = pensionZusRate;
-    }
-
-    public BigDecimal getDisabilityZusRate() {
-        return disabilityZusRate;
-    }
-
-    public void setDisabilityZusRate(final BigDecimal disabilityZusRate) {
-        this.disabilityZusRate = disabilityZusRate;
-    }
-
-    public BigDecimal getSicknessZusRate() {
-        return sicknessZusRate;
-    }
-
-    public void setSicknessZusRate(final BigDecimal sicknessZusRate) {
-        this.sicknessZusRate = sicknessZusRate;
-    }
-
-    public BigDecimal getTotalZusRate() {
-        return totalZusRate;
-    }
-
-    public void setTotalZusRate(final BigDecimal totalZusRate) {
-        this.totalZusRate = totalZusRate;
-    }
-
-    public BigDecimal getHealthRate() {
-        return healthRate;
-    }
-
-    public void setHealthRate(final BigDecimal healthRate) {
-        this.healthRate = healthRate;
-    }
-
-    public BigDecimal getTaxRate17Rate() {
-        return taxRate17Rate;
-    }
-
-    public void setTaxRate17Rate(final BigDecimal taxRate17Rate) {
-        this.taxRate17Rate = taxRate17Rate;
-    }
-
-    public BigDecimal getTaxRate32Rate() {
-        return taxRate32Rate;
-    }
-
-    public void setTaxRate32Rate(final BigDecimal taxRate32Rate) {
-        this.taxRate32Rate = taxRate32Rate;
-    }
-
-    public BigDecimal getTaxGrossAmountTrashold() {
-        return taxGrossAmountTrashold;
-    }
-
-    public void setTaxGrossAmountTrashold(final BigDecimal taxGrossAmountTrashold) {
-        this.taxGrossAmountTrashold = taxGrossAmountTrashold;
-    }
-
-    public BigDecimal getMinimumSalary() {
-        return minimumSalary;
-    }
-
-    public void setMinimumSalary(final BigDecimal minimumSalary) {
-        this.minimumSalary = minimumSalary;
-    }
 }

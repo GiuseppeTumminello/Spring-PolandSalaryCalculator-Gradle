@@ -21,6 +21,11 @@ public class DisabilityZusService implements SalaryCalculatorService {
     }
 
     @Override
+    public int getOrder() {
+        return 6;
+    }
+
+    @Override
     public String getDescription() {
         return "Disability zus";
     }

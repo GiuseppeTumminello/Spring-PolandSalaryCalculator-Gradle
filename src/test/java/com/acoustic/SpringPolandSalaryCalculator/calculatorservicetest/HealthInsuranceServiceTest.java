@@ -26,13 +26,9 @@ class HealthInsuranceServiceTest {
 
 
     @ParameterizedTest
-    @CsvSource({"6000, 465.97, 0.09, 0.1371", "7000, 543.63, 0.09, 0.1371", "15891.68, 1234.16, 0.09, 0.1371"})
+    @CsvSource({"5177.4, 465.97, 0.09", "6040.3, 543.63, 0.09", "13712.93, 1234.16, 0.09"})
     public void getHealthInsurance(
-            BigDecimal input,
-            BigDecimal expected,
-            BigDecimal healthRate,
-            BigDecimal totalZusRate) {
-        given(ratesConfigurationProperties.getTotalZusRate()).willReturn(totalZusRate);
+            BigDecimal input, BigDecimal expected, BigDecimal healthRate) {
         given(ratesConfigurationProperties.getHealthRate()).willReturn(healthRate);
         assertThat(healthInsuranceService.apply(input)).isEqualTo(expected);
     }

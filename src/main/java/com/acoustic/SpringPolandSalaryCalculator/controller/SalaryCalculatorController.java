@@ -2,10 +2,11 @@ package com.acoustic.SpringPolandSalaryCalculator.controller;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.Comparator;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.stream.Collectors;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
@@ -34,7 +35,6 @@ public class SalaryCalculatorController {
     private final JobCategoriesConfigurationProperties jobCategoriesConfigurationProperties;
 
 
-
     @GetMapping("/getJobTitles/{departmentName}")
     public String[] getJobTitles(
             @PathVariable
@@ -53,24 +53,52 @@ public class SalaryCalculatorController {
             @PathVariable
             @Min(value = MINIMUM_GROSS,
                     message = "Must be Greater than or equal to 2000.00") @NotNull BigDecimal grossMonthlySalary,
-            @RequestParam(defaultValue = "0", required = false)
-            @NotNull String departmentName,
-            @RequestParam(defaultValue = "0", required = false)
-            @NotNull int jobTitleId ) {
-
-
-        var response = this.salaryCalculatorService.stream()
-                .collect(Collectors.toMap(SalaryCalculatorService::getDescription, e -> e.apply(grossMonthlySalary)));
-        if (departmentName.equals("0") || jobTitleId == 0){
-
+            @RequestParam(required = false)
+            String departmentName,
+            @RequestParam(required = false)
+            Integer jobTitleId) {
+        Map<String, BigDecimal> response = new LinkedHashMap<>();
+        calculateTaxes(grossMonthlySalary, response);
+        if (departmentName == null || jobTitleId == null) {
             return response;
         }
-
         return getAverage(grossMonthlySalary, departmentName, jobTitleId, response);
 
     }
 
-    private Map<String, BigDecimal> getAverage(BigDecimal grossMonthlySalary, String departmentName, int jobTitleId, Map<String, BigDecimal> response) {
+    private void calculateTaxes(BigDecimal grossMonthlySalary, Map<String, BigDecimal> response) {
+        salaryCalculatorService.sort(Comparator.comparingInt(SalaryCalculatorService::getOrder));
+        BigDecimal grossMonthlySalaryMinusTaxes = grossMonthlySalary;
+        BigDecimal tax = null;
+        for (var service : salaryCalculatorService) {
+            if (service.getOrder() > 5) {
+                response.put(
+                        service.getDescription(),
+                        service.apply(grossMonthlySalary).setScale(2, RoundingMode.HALF_EVEN));
+            } else {
+                response.put(
+                        service.getDescription(),
+                        service.apply(grossMonthlySalaryMinusTaxes).setScale(2, RoundingMode.HALF_EVEN));
+                if (service.getOrder() == 3) {
+                    tax = service.apply(grossMonthlySalary);
+                    response.put(service.getDescription(), tax);
+                    continue;
+
+                }
+                if (service.getOrder() == 4) {
+                    grossMonthlySalaryMinusTaxes = grossMonthlySalaryMinusTaxes.subtract(tax);
+                    response.put(service.getDescription(), service.apply(grossMonthlySalaryMinusTaxes));
+                    continue;
+                }
+                grossMonthlySalaryMinusTaxes = grossMonthlySalaryMinusTaxes.subtract(service.apply(
+                        grossMonthlySalaryMinusTaxes));
+
+            }
+        }
+    }
+
+    private Map<String, BigDecimal> getAverage(
+            BigDecimal grossMonthlySalary, String departmentName, int jobTitleId, Map<String, BigDecimal> response) {
         if (this.jobCategoriesConfigurationProperties.getJobDepartmentAndTitles()
                 .containsKey(departmentName.toLowerCase())) {
             BigDecimal average = statistic(departmentName, jobTitleId, grossMonthlySalary);
@@ -94,7 +122,8 @@ public class SalaryCalculatorController {
                     .build());
             return this.dataSalaryCalculatorRepository.findAverageByJobTitle(jobTitlesList.get(jobTitleId - 1));
 
-        } throw new IllegalArgumentException("Wrong job id");
+        }
+        throw new IllegalArgumentException("Wrong job id");
 
     }
 

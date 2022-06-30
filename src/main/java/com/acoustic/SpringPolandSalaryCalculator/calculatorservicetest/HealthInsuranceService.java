@@ -17,9 +17,12 @@ public class HealthInsuranceService implements SalaryCalculatorService {
 
     @Override
     public BigDecimal apply(BigDecimal grossMonthlySalary) {
-        return grossMonthlySalary.subtract(grossMonthlySalary.multiply(this.rate.getTotalZusRate()))
-                .multiply(this.rate.getHealthRate())
-                .setScale(2, RoundingMode.HALF_EVEN);
+        return grossMonthlySalary.multiply(this.rate.getHealthRate()).setScale(2, RoundingMode.HALF_EVEN);
+    }
+
+    @Override
+    public int getOrder() {
+        return 2;
     }
 
     @Override

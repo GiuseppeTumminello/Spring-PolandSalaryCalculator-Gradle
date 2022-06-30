@@ -2,7 +2,6 @@ package com.acoustic.SpringPolandSalaryCalculator.entity;
 
 
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -26,7 +25,6 @@ public class DataSalaryCalculator {
     private int id;
     private BigDecimal grossMonthly;
     private String jobTitle;
-
 
 }
 

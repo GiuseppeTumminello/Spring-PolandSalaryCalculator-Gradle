@@ -16,6 +16,11 @@ public class TotalZusService implements SalaryCalculatorService {
     private final RatesConfigurationProperties rate;
 
     @Override
+    public int getOrder() {
+        return 1;
+    }
+
+    @Override
     public String getDescription() {
         return "Total zus";
     }

@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 @Service
 public interface SalaryCalculatorService extends UnaryOperator<BigDecimal> {
 
+    int getOrder();
+
     String getDescription();
 
 }

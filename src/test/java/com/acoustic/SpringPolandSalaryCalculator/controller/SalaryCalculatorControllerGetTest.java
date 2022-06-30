@@ -16,7 +16,6 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
 
-import com.acoustic.SpringPolandSalaryCalculator.jobcategories.JobCategoriesConfigurationProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 
@@ -39,12 +38,12 @@ public class SalaryCalculatorControllerGetTest {
 
 
     @Autowired
-    private JobCategoriesConfigurationProperties jobCategoriesConfigurationProperties;
-
-    @Autowired
     private MockMvc mockMvc;
     @Autowired
     private ObjectMapper objectMapper;
+
+    public SalaryCalculatorControllerGetTest() {
+    }
 
 
     @Test

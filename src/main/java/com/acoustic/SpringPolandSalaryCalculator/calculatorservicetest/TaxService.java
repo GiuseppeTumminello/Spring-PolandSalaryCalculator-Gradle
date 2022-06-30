@@ -17,16 +17,20 @@ public class TaxService implements SalaryCalculatorService {
     public static final int MONTHS_NUMBER = 12;
     private final RatesConfigurationProperties rate;
 
-    private final TotalZusService totalZusService;
-
-    private final HealthInsuranceService healthInsuranceService;
-
 
     @Override
     public BigDecimal apply(BigDecimal grossMonthlySalary) {
-        return (grossMonthlySalary.multiply(BigDecimal.valueOf(MONTHS_NUMBER)).compareTo(this.rate.getTaxGrossAmountTrashold()) < 0)
-                ? getTaxAmountBasedOnRate(grossMonthlySalary, this.rate.getTaxRate17Rate())
+        return (grossMonthlySalary.multiply(BigDecimal.valueOf(MONTHS_NUMBER))
+                .compareTo(this.rate.getTaxGrossAmountTrashold()) < 0)
+                ? getTaxAmountBasedOnRate(
+                grossMonthlySalary,
+                this.rate.getTaxRate17Rate())
                 : getTaxAmountBasedOnRate(grossMonthlySalary, this.rate.getTaxRate32Rate());
+    }
+
+    @Override
+    public int getOrder() {
+        return 3;
     }
 
     @Override
@@ -36,9 +40,9 @@ public class TaxService implements SalaryCalculatorService {
 
 
     private BigDecimal getTaxAmountBasedOnRate(BigDecimal grossMonthlySalary, BigDecimal rate) {
-        return grossMonthlySalary.subtract(this.totalZusService.apply(grossMonthlySalary))
-                .subtract(this.healthInsuranceService.apply(grossMonthlySalary))
-                .multiply(rate)
-                .setScale(2, RoundingMode.HALF_EVEN);
+        grossMonthlySalary = grossMonthlySalary.subtract(grossMonthlySalary.multiply(this.rate.getTotalZusRate()));
+        grossMonthlySalary = grossMonthlySalary.subtract(grossMonthlySalary.multiply(this.rate.getHealthRate()));
+        return grossMonthlySalary.multiply(rate).setScale(2, RoundingMode.HALF_EVEN);
+
     }
 }

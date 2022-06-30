@@ -19,42 +19,35 @@ import com.acoustic.SpringPolandSalaryCalculator.rates.RatesConfigurationPropert
 class TaxServiceTest {
 
     public static final int TAX_GROSS_AMOUNT_TRASHOLD = 120000;
+    public static final double TOTAL_ZUS_RATE = 0.1371;
+    public static final double HEALTH_RATE = 0.09;
     @InjectMocks
     private TaxService taxService;
 
     @Mock
     private RatesConfigurationProperties ratesConfigurationProperties;
 
-    @Mock
-
-    private TotalZusService totalZusService;
-
-    @Mock
-    private HealthInsuranceService healthInsuranceService;
-
 
     @ParameterizedTest
-    @CsvSource({"6000, 391.99, 0.0832,  822.60, 465.97", "7000, 457.32, 0.0832,  959.70, 543.63",})
-    public void getTaxAmountBasedOnRate17(
-            BigDecimal input, BigDecimal expected, BigDecimal rate, BigDecimal totalZus, BigDecimal health) {
+    @CsvSource({"6000, 391.99, 0.0832", "7000, 457.32, 0.0832",})
+    public void getTaxAmountBasedOnRate17(BigDecimal input, BigDecimal expected, BigDecimal rate) {
         given(ratesConfigurationProperties.getTaxRate17Rate()).willReturn(rate);
         given(ratesConfigurationProperties.getTaxGrossAmountTrashold()).willReturn(BigDecimal.valueOf(
                 TAX_GROSS_AMOUNT_TRASHOLD));
-        given(totalZusService.apply(input)).willReturn(totalZus);
-        given(healthInsuranceService.apply(input)).willReturn(health);
+        given(ratesConfigurationProperties.getTotalZusRate()).willReturn(BigDecimal.valueOf(TOTAL_ZUS_RATE));
+        given(ratesConfigurationProperties.getHealthRate()).willReturn(BigDecimal.valueOf(HEALTH_RATE));
         assertThat(taxService.apply(input)).isEqualTo(expected);
 
     }
 
     @ParameterizedTest
-    @CsvSource({"15891.68, 1786.96, 0.1432, 2178.75,1234.16"})
-    public void getTaxAmountBasedOnRate32(
-            BigDecimal input, BigDecimal expected, BigDecimal rate, BigDecimal totalZus, BigDecimal health) {
+    @CsvSource({"15891.68, 1786.96, 0.1432"})
+    public void getTaxAmountBasedOnRate32(BigDecimal input, BigDecimal expected, BigDecimal rate) {
         given(ratesConfigurationProperties.getTaxRate32Rate()).willReturn(rate);
         given(ratesConfigurationProperties.getTaxGrossAmountTrashold()).willReturn(BigDecimal.valueOf(
                 TAX_GROSS_AMOUNT_TRASHOLD));
-        given(totalZusService.apply(input)).willReturn(totalZus);
-        given(healthInsuranceService.apply(input)).willReturn(health);
+        given(ratesConfigurationProperties.getTotalZusRate()).willReturn(BigDecimal.valueOf(TOTAL_ZUS_RATE));
+        given(ratesConfigurationProperties.getHealthRate()).willReturn(BigDecimal.valueOf(HEALTH_RATE));
         assertThat(taxService.apply(input)).isEqualTo(expected);
 
     }
