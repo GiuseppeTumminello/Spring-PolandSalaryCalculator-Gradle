@@ -6,27 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="611964dc-c4cc-4755-b66d-229be52e4a65" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/acoustic/SpringPolandSalaryCalculator/calculatorservicetest/AnnualGrossService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/acoustic/SpringPolandSalaryCalculator/calculatorservice/AnnualGrossService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/acoustic/SpringPolandSalaryCalculator/calculatorservicetest/AnnualNetService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/acoustic/SpringPolandSalaryCalculator/calculatorservice/AnnualNetService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/acoustic/SpringPolandSalaryCalculator/calculatorservicetest/DisabilityZusService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/acoustic/SpringPolandSalaryCalculator/calculatorservice/DisabilityZusService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/acoustic/SpringPolandSalaryCalculator/calculatorservicetest/HealthInsuranceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/acoustic/SpringPolandSalaryCalculator/calculatorservice/HealthInsuranceService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/acoustic/SpringPolandSalaryCalculator/calculatorservicetest/MonthlyNetService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/acoustic/SpringPolandSalaryCalculator/calculatorservice/MonthlyNetService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/acoustic/SpringPolandSalaryCalculator/calculatorservicetest/PensionZusService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/acoustic/SpringPolandSalaryCalculator/calculatorservice/PensionZusService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/acoustic/SpringPolandSalaryCalculator/calculatorservicetest/SalaryCalculatorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/acoustic/SpringPolandSalaryCalculator/calculatorservice/SalaryCalculatorService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/acoustic/SpringPolandSalaryCalculator/calculatorservicetest/SicknessInsuranceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/acoustic/SpringPolandSalaryCalculator/calculatorservice/SicknessInsuranceService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/acoustic/SpringPolandSalaryCalculator/calculatorservicetest/TaxService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/acoustic/SpringPolandSalaryCalculator/calculatorservice/TaxService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/acoustic/SpringPolandSalaryCalculator/calculatorservicetest/TotalZusService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/acoustic/SpringPolandSalaryCalculator/calculatorservice/TotalZusService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/acoustic/SpringPolandSalaryCalculator/controller/SalaryCalculatorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/acoustic/SpringPolandSalaryCalculator/controller/SalaryCalculatorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/acoustic/SpringPolandSalaryCalculator/jobcategories/JobCategoriesConfigurationProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/acoustic/SpringPolandSalaryCalculator/jobcategories/JobCategoriesConfigurationProperties.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/acoustic/SpringPolandSalaryCalculator/calculatorservicetest/AnnualGrossServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/acoustic/SpringPolandSalaryCalculator/calculatorservicetest/AnnualGrossServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/acoustic/SpringPolandSalaryCalculator/calculatorservicetest/AnnualNetServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/acoustic/SpringPolandSalaryCalculator/calculatorservicetest/AnnualNetServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/acoustic/SpringPolandSalaryCalculator/calculatorservicetest/DisabilityZusServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/acoustic/SpringPolandSalaryCalculator/calculatorservicetest/DisabilityZusServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/acoustic/SpringPolandSalaryCalculator/calculatorservicetest/HealthInsuranceServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/acoustic/SpringPolandSalaryCalculator/calculatorservicetest/HealthInsuranceServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/acoustic/SpringPolandSalaryCalculator/calculatorservicetest/MonthlyNetServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/acoustic/SpringPolandSalaryCalculator/calculatorservicetest/MonthlyNetServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/acoustic/SpringPolandSalaryCalculator/calculatorservicetest/PensionZusServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/acoustic/SpringPolandSalaryCalculator/calculatorservicetest/PensionZusServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/acoustic/SpringPolandSalaryCalculator/calculatorservicetest/SicknessInsuranceServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/acoustic/SpringPolandSalaryCalculator/calculatorservicetest/SicknessInsuranceServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/acoustic/SpringPolandSalaryCalculator/calculatorservice/TaxService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/acoustic/SpringPolandSalaryCalculator/calculatorservice/TaxService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/acoustic/SpringPolandSalaryCalculator/rates/RatesConfigurationProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/acoustic/SpringPolandSalaryCalculator/rates/RatesConfigurationProperties.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/acoustic/SpringPolandSalaryCalculator/calculatorservicetest/TaxServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/acoustic/SpringPolandSalaryCalculator/calculatorservicetest/TaxServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/acoustic/SpringPolandSalaryCalculator/calculatorservicetest/TotalZusServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/acoustic/SpringPolandSalaryCalculator/calculatorservicetest/TotalZusServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/acoustic/SpringPolandSalaryCalculator/controller/SalaryCalculatorControllerGetTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/acoustic/SpringPolandSalaryCalculator/controller/SalaryCalculatorControllerGetTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Spring-PolandSalaryCalculator.iml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -102,18 +85,19 @@
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "last.edited.regexp": "Sample Text",
-    "last_opened_file_path": "/Users/giuseppetumminello/Desktop/Java/Spring-PolandSalaryCalculator-Gradle",
+    "last_opened_file_path": "/Users/giuseppetumminello/Desktop/Java/Spring-PolandSalaryCalculator-Gradle/src/test/resources",
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "reference.projectsettings.compiler.annotationProcessors",
+    "settings.editor.selected.configurable": "spring.boot",
     "spring.configuration.checksum": "961cbb1ad2c2ec186e1e1479b729ac85"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/test/resources" />
+      <recent name="$PROJECT_DIR$/src/test/java/com/acoustic/SpringPolandSalaryCalculator" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
@@ -130,26 +114,14 @@
       <recent name="com.acoustic.SpringPolandSalaryCalculator.entity" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.acoustic.SpringPolandSalaryCalculator.jobcategories" />
       <recent name="com.acoustic.SpringPolandSalaryCalculator.repository" />
       <recent name="com.acoustic.SpringPolandSalaryCalculator.controller" />
       <recent name="com.acoustic.SpringPolandSalaryCalculator.rates" />
     </key>
   </component>
   <component name="RunManager" selected="Gradle.Tests in 'com.acoustic.SpringPolandSalaryCalculator'">
-    <configuration name="SalaryCalculator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.acoustic.SpringPolandSalaryCalculator.SalaryCalculator" />
-      <module name="Spring-PolandSalaryCalculator-Gradle.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.acoustic.SpringPolandSalaryCalculator.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="SalaryCalculatorControllerPostTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="SalaryCalculatorControllerGetTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -162,7 +134,30 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;com.acoustic.SpringPolandSalaryCalculator.controller.SalaryCalculatorControllerPostTest&quot;" />
+            <option value="&quot;com.acoustic.SpringPolandSalaryCalculator.controller.SalaryCalculatorControllerGetTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="SalaryCalculatorControllerGetTest.shouldGetDataBit" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;com.acoustic.SpringPolandSalaryCalculator.controller.SalaryCalculatorControllerGetTest.shouldGetDataBit&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -251,10 +246,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.Tests in 'com.acoustic.SpringPolandSalaryCalculator'" />
+        <item itemvalue="Gradle.SalaryCalculatorControllerGetTest" />
+        <item itemvalue="Gradle.SalaryCalculatorControllerGetTest.shouldGetDataBit" />
         <item itemvalue="Gradle.Tests in 'com.acoustic.SpringPolandSalaryCalculator.controller'" />
         <item itemvalue="Gradle.Tests in 'com.acoustic.SpringPolandSalaryCalculator.calculator'" />
-        <item itemvalue="Gradle.SalaryCalculatorControllerPostTest" />
-        <item itemvalue="Application.SalaryCalculator" />
       </list>
     </recent_temporary>
   </component>
@@ -266,7 +261,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1656057143273</updated>
-      <workItem from="1656666673804" duration="1691000" />
+      <workItem from="1656666673804" duration="5894000" />
     </task>
     <servers />
   </component>
@@ -284,14 +279,19 @@
       </map>
     </option>
   </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Spring_PolandSalaryCalculator_Gradle$Tests_in__com_acoustic_SpringPolandSalaryCalculator_controller_.ic" NAME="Tests in 'com.acoustic.SpringPolandSalaryCalculator.controller' Coverage Results" MODIFIED="1656314990592" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/Spring_PolandSalaryCalculator_Gradle$Tests_in__com_acoustic_SpringPolandSalaryCalculator_.ic" NAME="Tests in 'com.acoustic.SpringPolandSalaryCalculator' Coverage Results" MODIFIED="1656583036453" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/Spring_PolandSalaryCalculator_Gradle$Tests_in__com_acoustic_SpringPolandSalaryCalculator_.ic" NAME="Tests in 'com.acoustic.SpringPolandSalaryCalculator' Coverage Results" MODIFIED="1656672140612" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/Spring_PolandSalaryCalculator_Gradle$Tests_in__com_acoustic_SpringPolandSalaryCalculator_calculator_.ic" NAME="Tests in 'com.acoustic.SpringPolandSalaryCalculator.calculator' Coverage Results" MODIFIED="1656496486672" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/Spring_PolandSalaryCalculator_Gradle$SalaryCalculator.ic" NAME="SalaryCalculator Coverage Results" MODIFIED="1656489834033" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.acoustic.SpringPolandSalaryCalculator.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/Spring_PolandSalaryCalculator_Gradle$SalaryCalculatorControllerPostTest.ic" NAME="SalaryCalculatorControllerPostTest Coverage Results" MODIFIED="1656490886108" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/Spring_PolandSalaryCalculator_Gradle$Tests_in__Spring_PolandSalaryCalculator_Gradle_test_.ic" NAME="Tests in 'Spring-PolandSalaryCalculator-Gradle.test' Coverage Results" MODIFIED="1656324231625" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/Spring_PolandSalaryCalculator_Gradle$SalaryCalculatorControllerGetTest.ic" NAME="SalaryCalculatorControllerGetTest Coverage Results" MODIFIED="1656672102132" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

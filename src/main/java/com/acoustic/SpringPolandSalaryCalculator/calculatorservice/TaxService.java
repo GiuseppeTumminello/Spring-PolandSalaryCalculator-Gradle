@@ -21,7 +21,7 @@ public class TaxService implements SalaryCalculatorService {
     @Override
     public BigDecimal apply(BigDecimal grossMonthlySalary) {
         return (grossMonthlySalary.multiply(BigDecimal.valueOf(MONTHS_NUMBER))
-                .compareTo(this.rate.getTaxGrossAmountTrashold()) < 0)
+                .compareTo(this.rate.getTaxGrossAmountThreshold()) < 0)
                 ? getTaxAmountBasedOnRate(
                 grossMonthlySalary,
                 this.rate.getTaxRate17Rate())
