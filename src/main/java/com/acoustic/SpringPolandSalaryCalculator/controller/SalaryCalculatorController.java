@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.acoustic.SpringPolandSalaryCalculator.calculatorservicetest.SalaryCalculatorService;
+import com.acoustic.SpringPolandSalaryCalculator.calculatorservice.SalaryCalculatorService;
 import com.acoustic.SpringPolandSalaryCalculator.entity.DataSalaryCalculator;
 import com.acoustic.SpringPolandSalaryCalculator.jobcategories.JobCategoriesConfigurationProperties;
 import com.acoustic.SpringPolandSalaryCalculator.service.DataSalaryCalculatorRepository;
@@ -36,10 +36,10 @@ public class SalaryCalculatorController {
 
 
     @GetMapping("/getJobTitles/{departmentName}")
-    public String[] getJobTitles(
+    public List<String> getJobTitles(
             @PathVariable
             String departmentName) {
-        return this.jobCategoriesConfigurationProperties.getJobDepartmentAndTitles().get(departmentName).split(",");
+        return this.jobCategoriesConfigurationProperties.getJobDepartmentAndTitles().get(departmentName);
     }
 
     @GetMapping("/getJobDepartments")
@@ -57,8 +57,8 @@ public class SalaryCalculatorController {
             String departmentName,
             @RequestParam(required = false)
             Integer jobTitleId) {
-        Map<String, BigDecimal> response = new LinkedHashMap<>();
-        responseWithoutStatistics(grossMonthlySalary, response);
+
+        var response = responseWithoutStatistics(grossMonthlySalary);
         if (departmentName == null || jobTitleId == null) {
             return response;
         }
@@ -66,7 +66,8 @@ public class SalaryCalculatorController {
 
     }
 
-    private void responseWithoutStatistics(BigDecimal grossMonthlySalary, Map<String, BigDecimal> response) {
+    private Map<String, BigDecimal> responseWithoutStatistics(BigDecimal grossMonthlySalary) {
+        Map<String, BigDecimal> response = new LinkedHashMap<>();
         salaryCalculatorServices.sort(Comparator.comparingInt(SalaryCalculatorService::getCalculationOrder));
         BigDecimal grossMonthlySalaryMinusTaxes = grossMonthlySalary;
         BigDecimal tax = null;
@@ -89,6 +90,7 @@ public class SalaryCalculatorController {
                 grossMonthlySalaryMinusTaxes = grossMonthlySalaryMinusTaxes.subtract(service.apply(grossMonthlySalaryMinusTaxes));
             }
         }
+        return response;
     }
 
     private Map<String, BigDecimal> getAverage(
@@ -106,9 +108,7 @@ public class SalaryCalculatorController {
 
 
     public BigDecimal statistic(String departmentName, int jobTitleId, BigDecimal grossMonthlySalary) {
-        List<String> jobTitlesList = List.of(this.jobCategoriesConfigurationProperties.getJobDepartmentAndTitles()
-                .get(departmentName)
-                .split(","));
+        List<String> jobTitlesList = this.jobCategoriesConfigurationProperties.getJobDepartmentAndTitles().get(departmentName);
         if (jobTitleId <= jobTitlesList.size() && jobTitleId >= 1) {
             this.dataSalaryCalculatorRepository.save(DataSalaryCalculator.builder()
                     .grossMonthly(grossMonthlySalary)

@@ -1,5 +1,6 @@
 package com.acoustic.SpringPolandSalaryCalculator.jobcategories;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -18,6 +19,6 @@ public class JobCategoriesConfigurationProperties {
 
 
     @Value("#{${jobs.jobTitles}}")
-    private Map<String, String> jobDepartmentAndTitles;
+    private Map<String, List<String>> jobDepartmentAndTitles;
 
 }

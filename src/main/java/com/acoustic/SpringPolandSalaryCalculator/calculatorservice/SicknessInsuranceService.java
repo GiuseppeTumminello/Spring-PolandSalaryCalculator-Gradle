@@ -1,4 +1,4 @@
-package com.acoustic.SpringPolandSalaryCalculator.calculatorservicetest;
+package com.acoustic.SpringPolandSalaryCalculator.calculatorservice;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -11,22 +11,22 @@ import lombok.RequiredArgsConstructor;
 
 @Component
 @RequiredArgsConstructor
-public class HealthInsuranceService implements SalaryCalculatorService {
+public class SicknessInsuranceService implements SalaryCalculatorService {
 
     private final RatesConfigurationProperties rate;
 
     @Override
-    public BigDecimal apply(BigDecimal grossMonthlySalary) {
-        return grossMonthlySalary.multiply(this.rate.getHealthRate()).setScale(2, RoundingMode.HALF_EVEN);
+    public BigDecimal apply(final BigDecimal grossMonthlySalary) {
+        return grossMonthlySalary.multiply(this.rate.getSicknessZusRate()).setScale(2, RoundingMode.HALF_EVEN);
     }
 
     @Override
     public int getCalculationOrder() {
-        return 2;
+        return 9;
     }
 
     @Override
     public String getDescription() {
-        return "Health insurance";
+        return "Sickness insurance";
     }
 }

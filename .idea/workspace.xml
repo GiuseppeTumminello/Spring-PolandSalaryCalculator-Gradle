@@ -6,6 +6,27 @@
   <component name="ChangeListManager">
     <list default="true" id="611964dc-c4cc-4755-b66d-229be52e4a65" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/acoustic/SpringPolandSalaryCalculator/calculatorservicetest/AnnualGrossService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/acoustic/SpringPolandSalaryCalculator/calculatorservice/AnnualGrossService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/acoustic/SpringPolandSalaryCalculator/calculatorservicetest/AnnualNetService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/acoustic/SpringPolandSalaryCalculator/calculatorservice/AnnualNetService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/acoustic/SpringPolandSalaryCalculator/calculatorservicetest/DisabilityZusService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/acoustic/SpringPolandSalaryCalculator/calculatorservice/DisabilityZusService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/acoustic/SpringPolandSalaryCalculator/calculatorservicetest/HealthInsuranceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/acoustic/SpringPolandSalaryCalculator/calculatorservice/HealthInsuranceService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/acoustic/SpringPolandSalaryCalculator/calculatorservicetest/MonthlyNetService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/acoustic/SpringPolandSalaryCalculator/calculatorservice/MonthlyNetService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/acoustic/SpringPolandSalaryCalculator/calculatorservicetest/PensionZusService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/acoustic/SpringPolandSalaryCalculator/calculatorservice/PensionZusService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/acoustic/SpringPolandSalaryCalculator/calculatorservicetest/SalaryCalculatorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/acoustic/SpringPolandSalaryCalculator/calculatorservice/SalaryCalculatorService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/acoustic/SpringPolandSalaryCalculator/calculatorservicetest/SicknessInsuranceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/acoustic/SpringPolandSalaryCalculator/calculatorservice/SicknessInsuranceService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/acoustic/SpringPolandSalaryCalculator/calculatorservicetest/TaxService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/acoustic/SpringPolandSalaryCalculator/calculatorservice/TaxService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/acoustic/SpringPolandSalaryCalculator/calculatorservicetest/TotalZusService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/acoustic/SpringPolandSalaryCalculator/calculatorservice/TotalZusService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/acoustic/SpringPolandSalaryCalculator/controller/SalaryCalculatorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/acoustic/SpringPolandSalaryCalculator/controller/SalaryCalculatorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/acoustic/SpringPolandSalaryCalculator/jobcategories/JobCategoriesConfigurationProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/acoustic/SpringPolandSalaryCalculator/jobcategories/JobCategoriesConfigurationProperties.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/acoustic/SpringPolandSalaryCalculator/calculatorservicetest/AnnualGrossServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/acoustic/SpringPolandSalaryCalculator/calculatorservicetest/AnnualGrossServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/acoustic/SpringPolandSalaryCalculator/calculatorservicetest/AnnualNetServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/acoustic/SpringPolandSalaryCalculator/calculatorservicetest/AnnualNetServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/acoustic/SpringPolandSalaryCalculator/calculatorservicetest/DisabilityZusServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/acoustic/SpringPolandSalaryCalculator/calculatorservicetest/DisabilityZusServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/acoustic/SpringPolandSalaryCalculator/calculatorservicetest/HealthInsuranceServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/acoustic/SpringPolandSalaryCalculator/calculatorservicetest/HealthInsuranceServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/acoustic/SpringPolandSalaryCalculator/calculatorservicetest/MonthlyNetServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/acoustic/SpringPolandSalaryCalculator/calculatorservicetest/MonthlyNetServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/acoustic/SpringPolandSalaryCalculator/calculatorservicetest/PensionZusServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/acoustic/SpringPolandSalaryCalculator/calculatorservicetest/PensionZusServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/acoustic/SpringPolandSalaryCalculator/calculatorservicetest/SicknessInsuranceServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/acoustic/SpringPolandSalaryCalculator/calculatorservicetest/SicknessInsuranceServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/acoustic/SpringPolandSalaryCalculator/calculatorservicetest/TaxServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/acoustic/SpringPolandSalaryCalculator/calculatorservicetest/TaxServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/acoustic/SpringPolandSalaryCalculator/calculatorservicetest/TotalZusServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/acoustic/SpringPolandSalaryCalculator/calculatorservicetest/TotalZusServiceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Spring-PolandSalaryCalculator.iml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -71,6 +92,10 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
@@ -78,10 +103,12 @@
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "last.edited.regexp": "Sample Text",
     "last_opened_file_path": "/Users/giuseppetumminello/Desktop/Java/Spring-PolandSalaryCalculator-Gradle",
+    "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "reference.projectsettings.compiler.annotationProcessors"
+    "settings.editor.selected.configurable": "reference.projectsettings.compiler.annotationProcessors",
+    "spring.configuration.checksum": "961cbb1ad2c2ec186e1e1479b729ac85"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -239,9 +266,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1656057143273</updated>
-      <workItem from="1656666673804" duration="8000" />
+      <workItem from="1656666673804" duration="1691000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">

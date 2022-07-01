@@ -1,4 +1,4 @@
-package com.acoustic.SpringPolandSalaryCalculator.calculatorservicetest;
+package com.acoustic.SpringPolandSalaryCalculator.calculatorservice;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -11,22 +11,22 @@ import lombok.RequiredArgsConstructor;
 
 @Component
 @RequiredArgsConstructor
-public class DisabilityZusService implements SalaryCalculatorService {
+public class PensionZusService implements SalaryCalculatorService {
 
     private final RatesConfigurationProperties rate;
 
     @Override
-    public BigDecimal apply(BigDecimal grossMonthlySalary) {
-        return grossMonthlySalary.multiply(this.rate.getDisabilityZusRate()).setScale(2, RoundingMode.HALF_EVEN);
+    public BigDecimal apply(final BigDecimal grossMonthlySalary) {
+        return grossMonthlySalary.multiply(this.rate.getPensionZusRate()).setScale(2, RoundingMode.HALF_EVEN);
     }
 
     @Override
     public int getCalculationOrder() {
-        return 6;
+        return 8;
     }
 
     @Override
     public String getDescription() {
-        return "Disability zus";
+        return "Pension zus";
     }
 }

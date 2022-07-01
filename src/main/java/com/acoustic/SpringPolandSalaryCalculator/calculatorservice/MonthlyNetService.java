@@ -1,6 +1,7 @@
-package com.acoustic.SpringPolandSalaryCalculator.calculatorservicetest;
+package com.acoustic.SpringPolandSalaryCalculator.calculatorservice;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 import org.springframework.stereotype.Component;
 
@@ -9,22 +10,20 @@ import lombok.RequiredArgsConstructor;
 
 @Component
 @RequiredArgsConstructor
-public class AnnualNetService implements SalaryCalculatorService {
-
-    private static final int MONTHS_NUMBER = 12;
+public class MonthlyNetService implements SalaryCalculatorService {
 
     @Override
     public int getCalculationOrder() {
-        return 5;
+        return 4;
     }
 
     @Override
     public String getDescription() {
-        return "Annual net";
+        return "Monthly net";
     }
 
     @Override
     public BigDecimal apply(BigDecimal grossMonthlySalary) {
-        return grossMonthlySalary.multiply(BigDecimal.valueOf(MONTHS_NUMBER));
+        return grossMonthlySalary.setScale(2, RoundingMode.HALF_EVEN);
     }
 }
