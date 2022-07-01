@@ -113,12 +113,6 @@ If the user wants to participate in the statistics will also display the average
   * Go to the folder: Spring-PolandSalaryCalculator-Gradle
   * execute: docker-compose -f docker-compose-salary-calculator.yml up
 
-# How to run in Docker ?
-
-Clone the git repository and run the following command:
-
-* docker run -it --rm -p 8080:8080 spring-polandsalarycalculator-gradle_salary_calculator
-
 
 
 
