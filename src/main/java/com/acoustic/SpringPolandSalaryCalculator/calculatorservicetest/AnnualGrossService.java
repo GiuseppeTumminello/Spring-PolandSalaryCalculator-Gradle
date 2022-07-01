@@ -16,7 +16,7 @@ public class AnnualGrossService implements SalaryCalculatorService {
 
 
     @Override
-    public int getOrder() {
+    public int getCalculationOrder() {
         return 6;
     }
 

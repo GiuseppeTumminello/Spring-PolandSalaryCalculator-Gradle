@@ -21,7 +21,7 @@ public class PensionZusService implements SalaryCalculatorService {
     }
 
     @Override
-    public int getOrder() {
+    public int getCalculationOrder() {
         return 8;
     }
 

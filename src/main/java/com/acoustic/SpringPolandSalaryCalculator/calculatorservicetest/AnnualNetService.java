@@ -14,7 +14,7 @@ public class AnnualNetService implements SalaryCalculatorService {
     private static final int MONTHS_NUMBER = 12;
 
     @Override
-    public int getOrder() {
+    public int getCalculationOrder() {
         return 5;
     }
 

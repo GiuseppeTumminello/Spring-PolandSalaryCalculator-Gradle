@@ -29,7 +29,7 @@ public class TaxService implements SalaryCalculatorService {
     }
 
     @Override
-    public int getOrder() {
+    public int getCalculationOrder() {
         return 3;
     }
 

@@ -31,7 +31,7 @@ public class SalaryCalculatorController {
 
     public static final int MINIMUM_GROSS = 2000;
     private final DataSalaryCalculatorRepository dataSalaryCalculatorRepository;
-    private final List<SalaryCalculatorService> salaryCalculatorService;
+    private final List<SalaryCalculatorService> salaryCalculatorServices;
     private final JobCategoriesConfigurationProperties jobCategoriesConfigurationProperties;
 
 
@@ -67,22 +67,22 @@ public class SalaryCalculatorController {
     }
 
     private void responseWithoutStatistics(BigDecimal grossMonthlySalary, Map<String, BigDecimal> response) {
-        salaryCalculatorService.sort(Comparator.comparingInt(SalaryCalculatorService::getOrder));
+        salaryCalculatorServices.sort(Comparator.comparingInt(SalaryCalculatorService::getCalculationOrder));
         BigDecimal grossMonthlySalaryMinusTaxes = grossMonthlySalary;
         BigDecimal tax = null;
         final int taxesOrder = 3;
         final int netOrder = 4;
-        for (var service : salaryCalculatorService) {
-            if (service.getOrder() > 5) {
+        for (var service : salaryCalculatorServices) {
+            if (service.getCalculationOrder() > 5) {
                 response.put(service.getDescription(), service.apply(grossMonthlySalary).setScale(2, RoundingMode.HALF_EVEN));
             } else {
                 response.put(service.getDescription(), service.apply(grossMonthlySalaryMinusTaxes).setScale(2, RoundingMode.HALF_EVEN));
 
-                if (service.getOrder() == taxesOrder) {
+                if (service.getCalculationOrder() == taxesOrder) {
                     response.put(service.getDescription(), tax = service.apply(grossMonthlySalary));
                     continue;
                 }
-                if (service.getOrder() == netOrder) {
+                if (service.getCalculationOrder() == netOrder) {
                     response.put(service.getDescription(), service.apply(grossMonthlySalaryMinusTaxes = grossMonthlySalaryMinusTaxes.subtract(tax)));
                     continue;
                 }

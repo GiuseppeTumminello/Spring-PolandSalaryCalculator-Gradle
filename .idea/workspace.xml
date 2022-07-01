@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="611964dc-c4cc-4755-b66d-229be52e4a65" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose-salary-calculator.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose-salary-calculator.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/acoustic/SpringPolandSalaryCalculator/calculator/SalaryCalculatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/acoustic/SpringPolandSalaryCalculator/calculator/SalaryCalculatorTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Spring-PolandSalaryCalculator.iml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -71,20 +69,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;last.edited.regexp&quot;: &quot;Sample Text&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/giuseppetumminello/Desktop/Java/Spring-PolandSalaryCalculator-Gradle/src/test/resources&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.projectsettings.compiler.annotationProcessors&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "last.edited.regexp": "Sample Text",
+    "last_opened_file_path": "/Users/giuseppetumminello/Desktop/Java/Spring-PolandSalaryCalculator-Gradle",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "reference.projectsettings.compiler.annotationProcessors"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/test/resources" />
@@ -215,6 +214,13 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
+    <configuration name="SalaryCalculator" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="Spring-PolandSalaryCalculator-Gradle.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.acoustic.SpringPolandSalaryCalculator.SalaryCalculator" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.Tests in 'com.acoustic.SpringPolandSalaryCalculator'" />
@@ -233,6 +239,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1656057143273</updated>
+      <workItem from="1656666673804" duration="8000" />
     </task>
     <servers />
   </component>
@@ -248,13 +255,13 @@
     </option>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Spring_PolandSalaryCalculator_Gradle$Tests_in__Spring_PolandSalaryCalculator_Gradle_test_.ic" NAME="Tests in 'Spring-PolandSalaryCalculator-Gradle.test' Coverage Results" MODIFIED="1656324231625" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/Spring_PolandSalaryCalculator_Gradle$Tests_in__com_acoustic_SpringPolandSalaryCalculator_calculator_.ic" NAME="Tests in 'com.acoustic.SpringPolandSalaryCalculator.calculator' Coverage Results" MODIFIED="1656496486672" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/Spring_PolandSalaryCalculator_Gradle$Tests_in__com_acoustic_SpringPolandSalaryCalculator_controller_.ic" NAME="Tests in 'com.acoustic.SpringPolandSalaryCalculator.controller' Coverage Results" MODIFIED="1656314990592" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/Spring_PolandSalaryCalculator_Gradle$Tests_in__com_acoustic_SpringPolandSalaryCalculator_.ic" NAME="Tests in 'com.acoustic.SpringPolandSalaryCalculator' Coverage Results" MODIFIED="1656583036453" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/Spring_PolandSalaryCalculator_Gradle$SalaryCalculatorControllerPostTest.ic" NAME="SalaryCalculatorControllerPostTest Coverage Results" MODIFIED="1656490886108" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/Spring_PolandSalaryCalculator_Gradle$Tests_in__com_acoustic_SpringPolandSalaryCalculator_calculator_.ic" NAME="Tests in 'com.acoustic.SpringPolandSalaryCalculator.calculator' Coverage Results" MODIFIED="1656496486672" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/Spring_PolandSalaryCalculator_Gradle$SalaryCalculator.ic" NAME="SalaryCalculator Coverage Results" MODIFIED="1656489834033" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.acoustic.SpringPolandSalaryCalculator.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/Spring_PolandSalaryCalculator_Gradle$Tests_in__com_acoustic_SpringPolandSalaryCalculator_controller_.ic" NAME="Tests in 'com.acoustic.SpringPolandSalaryCalculator.controller' Coverage Results" MODIFIED="1656314990592" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/Spring_PolandSalaryCalculator_Gradle$SalaryCalculatorControllerPostTest.ic" NAME="SalaryCalculatorControllerPostTest Coverage Results" MODIFIED="1656490886108" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/Spring_PolandSalaryCalculator_Gradle$Tests_in__Spring_PolandSalaryCalculator_Gradle_test_.ic" NAME="Tests in 'Spring-PolandSalaryCalculator-Gradle.test' Coverage Results" MODIFIED="1656324231625" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

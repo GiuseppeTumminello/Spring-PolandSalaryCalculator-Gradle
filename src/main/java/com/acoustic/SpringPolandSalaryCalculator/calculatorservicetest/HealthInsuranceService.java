@@ -21,7 +21,7 @@ public class HealthInsuranceService implements SalaryCalculatorService {
     }
 
     @Override
-    public int getOrder() {
+    public int getCalculationOrder() {
         return 2;
     }
 

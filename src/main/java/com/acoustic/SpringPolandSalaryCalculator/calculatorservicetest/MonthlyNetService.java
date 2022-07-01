@@ -13,7 +13,7 @@ import lombok.RequiredArgsConstructor;
 public class MonthlyNetService implements SalaryCalculatorService {
 
     @Override
-    public int getOrder() {
+    public int getCalculationOrder() {
         return 4;
     }
 
