@@ -47,7 +47,7 @@ public class SalaryCalculatorTest {
 
     private UnaryOperator<BigDecimal> getTaxAmount() {
         return gross -> (gross.multiply(BigDecimal.valueOf(MONTHS_NUMBER))
-                .compareTo(ratesConfigurationPropertiesTest.getTaxGrossAmountTrashold()) < 0)
+                .compareTo(ratesConfigurationPropertiesTest.getTaxGrossAmountThreshold()) < 0)
                 ? getTaxAmountBasedOnRate(
                 gross,
                 ratesConfigurationPropertiesTest.getTaxRate17Rate())
