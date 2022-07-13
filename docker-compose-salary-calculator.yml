@@ -4,16 +4,16 @@ services:
     build:
       dockerfile: Dockerfile
     ports:
-      - 8080:8080
+      - "8080:8080"
     depends_on:
       - postgres
     environment:
-      - SPRING_DATASOURCE_URL=jdbc:mysql:jdbc:postgresql://postgres_container:5432/
+      - SPRING_DATASOURCE_URL=jdbc:mysql:jdbc:postgresql://postgres:5432/
       - SPRING_DATASOURCE_USERNAME=postgres
       - SPRING_DATASOURCE_PASSWORD=password
 
   postgres:
-    container_name: postgres_container
+    container_name: postgres
     image: postgres
     environment:
       POSTGRES_USER: postgres
