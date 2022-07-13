@@ -3,17 +3,21 @@ package com.acoustic.SpringPolandSalaryCalculator.calculatorservice;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
+import com.acoustic.SpringPolandSalaryCalculator.calculationorder.ServiceCalculationOrder;
 import org.springframework.stereotype.Component;
 
 import com.acoustic.SpringPolandSalaryCalculator.rates.RatesConfigurationProperties;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
 
-@Component
+@Service
 @RequiredArgsConstructor
 public class DisabilityZusService implements SalaryCalculatorService {
 
     private final RatesConfigurationProperties rate;
+
+    private final ServiceCalculationOrder serviceCalculationOrder;
 
     @Override
     public BigDecimal apply(BigDecimal grossMonthlySalary) {
@@ -22,7 +26,7 @@ public class DisabilityZusService implements SalaryCalculatorService {
 
     @Override
     public int getCalculationOrder() {
-        return 6;
+        return this.serviceCalculationOrder.getDisabilityZusServiceOrder();
     }
 
     @Override

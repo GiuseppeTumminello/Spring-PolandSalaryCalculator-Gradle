@@ -3,21 +3,25 @@ package com.acoustic.SpringPolandSalaryCalculator.calculatorservice;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
+import com.acoustic.SpringPolandSalaryCalculator.calculationorder.ServiceCalculationOrder;
 import org.springframework.stereotype.Component;
 
 import com.acoustic.SpringPolandSalaryCalculator.rates.RatesConfigurationProperties;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
 
-@Component
+@Service
 @RequiredArgsConstructor
 public class TotalZusService implements SalaryCalculatorService {
 
     private final RatesConfigurationProperties rate;
 
+    private final ServiceCalculationOrder serviceCalculationOrder;
+
     @Override
     public int getCalculationOrder() {
-        return 1;
+        return this.serviceCalculationOrder.getTotalZusServiceOrder();
     }
 
     @Override
