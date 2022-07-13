@@ -1,6 +1,7 @@
 package com.acoustic.SpringPolandSalaryCalculator.calculatorservice;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 import com.acoustic.SpringPolandSalaryCalculator.calculationorder.ServiceCalculationOrder;
 import org.springframework.stereotype.Component;
@@ -29,6 +30,6 @@ public class AnnualNetService implements SalaryCalculatorService {
 
     @Override
     public BigDecimal apply(BigDecimal grossMonthlySalary) {
-        return grossMonthlySalary.multiply(BigDecimal.valueOf(MONTHS_NUMBER));
+        return grossMonthlySalary.multiply(BigDecimal.valueOf(MONTHS_NUMBER)).setScale(2, RoundingMode.HALF_EVEN);
     }
 }

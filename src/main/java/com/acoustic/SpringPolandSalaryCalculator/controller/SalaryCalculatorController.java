@@ -1,27 +1,19 @@
 package com.acoustic.SpringPolandSalaryCalculator.controller;
 
-import java.math.BigDecimal;
-import java.math.RoundingMode;
-import java.util.Comparator;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
-
-import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
+import com.acoustic.SpringPolandSalaryCalculator.calculationorder.ServiceCalculationOrder;
 import com.acoustic.SpringPolandSalaryCalculator.calculatorservice.SalaryCalculatorService;
 import com.acoustic.SpringPolandSalaryCalculator.entity.DataSalaryCalculator;
 import com.acoustic.SpringPolandSalaryCalculator.jobcategories.JobCategoriesConfigurationProperties;
 import com.acoustic.SpringPolandSalaryCalculator.service.DataSalaryCalculatorRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
+
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.util.*;
 
 
 @RestController
@@ -34,11 +26,11 @@ public class SalaryCalculatorController {
     private final List<SalaryCalculatorService> salaryCalculatorServices;
     private final JobCategoriesConfigurationProperties jobCategoriesConfigurationProperties;
 
+    private final ServiceCalculationOrder serviceCalculationOrder;
+
 
     @GetMapping("/jobs/{departmentName}")
-    public List<String> getJobTitles(
-            @PathVariable
-            String departmentName) {
+    public List<String> getJobTitles(@PathVariable String departmentName) {
         return this.jobCategoriesConfigurationProperties.getJobDepartmentAndTitles().get(departmentName);
     }
 
@@ -56,7 +48,7 @@ public class SalaryCalculatorController {
         }
         List<String> jobTitlesList = this.jobCategoriesConfigurationProperties.getJobDepartmentAndTitles().get(departmentName);
         if (!this.jobCategoriesConfigurationProperties.getJobDepartmentAndTitles().containsKey(departmentName.toLowerCase())) {
-            throw new IllegalArgumentException("Invalid department name");
+            throw  new IllegalArgumentException("Invalid department name");
         }
 
         if (jobTitleId > jobTitlesList.size() || jobTitleId <= 0) {
@@ -72,20 +64,18 @@ public class SalaryCalculatorController {
         salaryCalculatorServices.sort(Comparator.comparingInt(SalaryCalculatorService::getCalculationOrder));
         BigDecimal grossMonthlySalaryMinusTaxes = grossMonthlySalary;
         BigDecimal tax = null;
-        final int taxesOrder = 3;
-        final int netOrder = 4;
-        for (var service : salaryCalculatorServices) {
-            if (service.getCalculationOrder() > 5) {
-                response.put(service.getDescription(), service.apply(grossMonthlySalary).setScale(2, RoundingMode.HALF_EVEN));
+        for (var service : this.salaryCalculatorServices) {
+            if (service.getCalculationOrder() > this.serviceCalculationOrder.getAnnualNetServiceOrder()) {
+                response.put(service.getDescription(), service.apply(grossMonthlySalary));
             } else {
-                response.put(service.getDescription(), service.apply(grossMonthlySalaryMinusTaxes).setScale(2, RoundingMode.HALF_EVEN));
+                response.put(service.getDescription(), service.apply(grossMonthlySalaryMinusTaxes));
 
-                if (service.getCalculationOrder() == taxesOrder) {
+                if (service.getCalculationOrder() == this.serviceCalculationOrder.getTaxServiceServiceOrder()) {
                     tax = service.apply(grossMonthlySalary);
                     response.put(service.getDescription(), tax);
                     continue;
                 }
-                if (service.getCalculationOrder() == netOrder) {
+                if (service.getCalculationOrder() == this.serviceCalculationOrder.getMonthlyNetServiceOrder()) {
                     response.put(service.getDescription(), service.apply(grossMonthlySalaryMinusTaxes = grossMonthlySalaryMinusTaxes.subtract(tax)));
                     continue;
                 }

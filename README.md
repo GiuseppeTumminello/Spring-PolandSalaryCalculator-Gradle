@@ -1,24 +1,46 @@
 # Rest API Salary Calculator
 
-The rest API has been created to calculate the net amount in PLN and display all the taxation applied to the gross amount.
+The rest api has been created to calculate net amount in pln and display all the taxation applied to
+the gross amount.
+The application can perform 2 GET and 1 POST html method, the first two are accessible in the
+following links:
 
-The application can perform 2 GET and 1 POST HTTP methods. The GET methods show the department name and the job titles list available and they are accessible from the following links:
+* The GET method show the departments and the job title list avaialable, to check them go to the
+  following endpoint:
+    * http://localhost:8080/calculate/getJobDepartment
+    * http://localhost:8080/calculate/getJobTitles/{departmentName}
 
-* http://localhost:8080/departments
-* http://localhost:8080/jobs/{departmentName}
 
-  Replace {departmentName} with the job department name.
+* The POST html method is used to calculate the salary and accept optional query parameters, go to
+  the following endpoint to calculate your net or participate to the statistics:
 
-The POST HTTP method is used to calculate the net salary and accepts optional query parameters. Go to the following endpoint to calculate your net salary or participate in the statistics:
+    * http://localhost:8080/calculate/{grossSalaryMonthly}
+    * http://localhost:8080/calculate/{grossSalaryMonthly}?departmentName={departmentName}&jobTitleId={id}
 
-* http://localhost:8080/salary-calculations/{grossSalaryMonthly}
-* http://localhost:8080/salary-calculations/{grossSalaryMonthly}?departmentName={departmentName}&jobTitleId={id}
-
-If the user wants to participate in the statistic, add to the url the department name and the job title id. The endpoint is accessible via http://localhost:8080/calculate/{grossSalaryMonthly}?departmentName={departmentName}&jobTitleId={id}. Replace {grossSalaryAmount} with your gross salary, {departmentName} with one of the department names listed below, and the {jobTitleId} with one of the job titles id listed below.
-
-An example of the endpoint:
+If the user wants to participate to the statistic add on the url the departmentName and jobTitleId,
+the endpoint is accessible
+via http://localhost:8080/calculate/{grossSalaryMonthly}?departmentName={departmentName}&jobTitleId={id}
+and replace {grossSalaryAmount} with your salary, {departmentName} with the department name listed
+below and the {jobTitleId} with the jobTitleId listed below, example of endpoint:
 
 * http://localhost:8080/calculate/6000?departmentName=finance&jobTitleId=9
+
+After provided the parameter, the API will return the following response body:
+
+* Pension Zus amount
+* Disability zus amount
+* Sickness zus amount
+* Total zus amount
+* Health amount
+* Tax amount
+* Yearly gross amount
+* Yearly net amount
+* Yearly net amount
+* Net amount
+
+if the user wants to participate to the stastics will display also the average value:
+
+* Average
 
 Department name:
 
@@ -44,7 +66,6 @@ Job title id:
     * 11 - Web Administrator
 
 * Finance:
-
     * 1 - Fund Accountant
     * 2 - Depositary
     * 3 - Accountant
@@ -59,9 +80,10 @@ Job title id:
     * 1 - Mechanical Engineer
     * 2 - Civil Engineer
     * 3 - Project Engineer
-    * 4 - Sales Engineer
-    * 5 - R&D Engineer
-    * 6 - Thermal Engineer
+    * 4 - Project Engineer
+    * 5 - Sales Engineer
+    * 6 - R&D Engineer
+    * 7 - Thermal Engineer
 
 * Restaurant
     * 1 - Executive Chef
@@ -85,33 +107,73 @@ Job title id:
     * 6 - Chief Pilot
     * 7 - Traffic Manager
 
-After providing the parameters, the API will return the following response body:
-
-* Pension Zus amount
-* Disability zus amount
-* Sickness zus amount
-* Total zus amount
-* Health amount
-* Tax amount
-* Yearly gross amount
-* Yearly net amount
-* Yearly net amount
-* Net amount
-
-If the user wants to participate in the statistics will also display the average value.
-
-* Average
-
 # Setup
 
 * Required:
     * Docker
+    * Postgres SQL
+    * Java 11 or higher
+* Optional
+    * PgAdmin4
 
- 
-* To create a container in Docker, follow the below instructions:
+The application uses Postgres SQL Server, which runs in a Docker container. Please execute the
+following command to create the containers for Postgres SQL and PgAdmin4
 
-    * Go to the folder: Spring-PolandSalaryCalculator-Gradle
-    * execute: docker-compose -f docker-compose-salary-calculator.yml up
+* Docker container postgress command line:
+    * docker pull postgres
+    * docker docker run -p 5432:5432 -d \                                              
+      -e POSTGRES_PASSWORD=password \
+      -e POSTGRES_USER=postgres \
+      -e POSTGRES_DB=stripe-example \
+      -v pgdata:/var/lib/postgresql/data \
+      postgres
+
+
+* Docker container PgAdmin4:
+    * docker pull dpage/pgadmin4
+    * docker run --name my-own-postgres -e POSTGRES_PASSWORD=postgresmaster -p 5432:5432 -d postgres
+
+* Docker compose file: docker-compose-salary-calculator.yml
+    * Go to the folder: PolandSalaryCalculator
+    * execute: docker-compose -f docker-compose-salary-application.yml up
+
+* Create a table in PostgreSQL by executing the create table query.
+
+    * CREATE TABLE IF NOT EXISTS public.data_salary_calculator
+      (
+      id integer NOT NULL DEFAULT nextval('salary_calculator_spring_id_seq'::regclass),
+      pension_zus numeric,
+      disability_zus numeric,
+      sickness_zus numeric,
+      total_zus numeric,
+      health numeric,
+      annual_gross numeric,
+      tax numeric,
+      net_monthly numeric,
+      annual_net numeric,
+      gross_monthly numeric,
+      job_title character varying COLLATE pg_catalog."default",
+      CONSTRAINT salary_calculator_spring_pkey PRIMARY KEY (id)
+      )
+
+# How to run from the IDE?
+
+Clone the git repository, open the project with your favorite IDE, go to the DatabaseConfig class,
+and update the following fields according to your setup:
+
+* HOST
+* PASSWORD
+* PORT
+* USER
+
+Once the database configuration is set, go to the SalaryCalculatorApplication class and run the main
+method.
+
+# How to run in Docker ?
+
+Clone the git repository and run the follwowing command:
+
+* docker run -it --rm -p 8080:8080 spring-polandsalarycalculator-gradle_salary_calculator
 
 
 
